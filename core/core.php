@@ -6,7 +6,7 @@ session_start();
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'mvcajax');
+define('DB_NAME', 'estacion_monitoreo');
 #Constantes de la app
 define('HTML_DIR','html/');
 define('APP_TITLE','Aire_Admin');

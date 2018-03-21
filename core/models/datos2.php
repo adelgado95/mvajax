@@ -16,19 +16,24 @@ if(!$mysqli){
 	die("Connection failed: " . $mysqli->error);
 }
 $sensor ="";
+$sensor2 ="";
 $limit="";
-if(isset($_GET['sensor']))
+if(isset($_POST['sensor']))
 {
-  $sensor = $_GET['sensor'];
+  $sensor = $_POST['sensor'];
 }
-if(isset($_GET['limit']))
+if(isset($_POST['sensor2']))
 {
-  $limit = "limit ".$_GET['limit'];
+  $sensor2 = $_POST['sensor2'];
+}
+if(isset($_POST['limit']))
+{
+  $limit = "limit ".$_POST['limit'];
 }
 
 //query to get data from the table
 
-$query = sprintf("SELECT g.y as y , m.y as y2 , TIME(g.fecha) as fecha FROM grafico_dht11 as g, grafico_mq7 as m where g.fecha = m.fecha order by m.fecha desc limit 10;");
+$query = sprintf("SELECT ".$sensor." as y , ".$sensor2." as y2 , TIME(fecha) as fecha FROM lectura order by fecha desc limit 10;");
 
 //execute query
 $result = $mysqli->query($query);

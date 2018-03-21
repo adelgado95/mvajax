@@ -74,10 +74,12 @@
       </div>
   <section class="content">
       <script type="text/javascript">
-      	$(document).ready(function(){
+      	var dt = {"sensor":"sensorOz","sensor2":"sensorT","limit":"5"};
+        $(document).ready(function(){
 			$.ajax({
 		url: "core/models/datos2.php",
-		method: "GET",
+		method: "POST",
+     data:dt,
 		success: function(data) {
 			console.log(data);
 			var fecha = [];
@@ -94,13 +96,13 @@
 				labels: fecha,
 				datasets : [
 					{
-						label: 'Sensor DTH11',
+						label: 'Sensor Ozono',
 						borderColor: '#3e95cd',
             fill: false,
 						data: lectura
 					},
           {
-						label: 'Sensor MQ7',
+						label: 'Sensor Temperatura',
 						borderColor: '#bc42f4',
             fill: false,
 						data: lectura2
@@ -123,7 +125,7 @@
       $.ajax({
     url: "core/models/ultimos.php",
     method: "POST",
-    data:{"sensor":"grafico_sds011"},
+    data:{"sensor":"sensorDx"},
     success: function(data) {
       console.log(data);
       var fecha = [];
@@ -162,7 +164,7 @@
          $.ajax({
     url: "core/models/ultimos.php",
     method: "POST",
-    data:{"sensor":"grafico_mq131"},
+    data:{"sensor":"sensorPm"},
     success: function(data) {
       console.log(data);
       var fecha = [];

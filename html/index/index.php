@@ -167,7 +167,7 @@
 <script src="views/app/js/generales.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
-    var dt = {"sensor":"grafico_mq7","limit":"5"};
+    var dt = {"sensor":"sensorOz","limit":"5"};
           $.ajax({
     url: "core/models/ultimos.php",
     method: "POST",
@@ -213,7 +213,7 @@
     }
   });
 
-  var dt2 = {"sensor":"grafico_dht11","limit":"5"};
+  var dt2 = {"sensor":"sensorT","limit":"5"};
           $.ajax({
     url: "core/models/ultimos.php",
     method: "POST",

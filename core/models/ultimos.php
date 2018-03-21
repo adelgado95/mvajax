@@ -34,7 +34,7 @@ else
 	$limit = 10;
 }//query to get data from the table
 
-$query = sprintf("SELECT x as numero,y as lectura ,TIME(fecha) as fecha FROM ".$sensor." order by x desc limit ".$limit.";");
+$query = sprintf("SELECT Id_lectura as numero ,".$sensor." as lectura,TIME(fecha) as fecha FROM lectura order by fecha desc limit ".$limit.";");
 
 //execute query
 $result = $mysqli->query($query);
