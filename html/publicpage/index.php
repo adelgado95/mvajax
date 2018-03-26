@@ -108,7 +108,7 @@
         </a>
 
     </header> <!-- end s-header -->
-    
+
     <!-- home
     ================================================== -->
     <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="views/app/images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
@@ -150,7 +150,7 @@
 
 <!-- Esto es para los botones de las redes sociales-->
 
-     
+
         <!-- end home-social -->
 
     </section> <!-- end s-home -->
@@ -163,7 +163,6 @@
         <div class="row section-header has-bottom-sep" data-aos="fade-up">
             <div class="col-full">
                 <h2 class="subhead subhead--dark">Últimos Valores</h2>
-                <h1 class="display-1 display-1--light">We Are Glint</h1>
             </div>
         </div> <!-- end section-header -->
 
@@ -235,45 +234,13 @@
             </div>
 
         </div> <!-- end services-list -->
-        
-        
+
+
         <div class="row about-desc" data-aos="fade-up">
-            
+
         </div> <!-- end about-desc -->
         </section>
 
-     <section id="one" class="wrapper style1 special">
-                <div class="container">
-                    <header class="major">
-                        <h2>Consectetur adipisicing elit</h2>
-                        <p>Lorem ipsum dolor sit amet, delectus consequatur, similique quia!</p>
-                    </header>
-                    <div class="row 150%">
-                        <div class="4u 12u$(medium)">
-                            <section class="box">
-                                <i class="icon big rounded color1 fa-cloud"></i>
-                                <h3>Lorem ipsum dolor</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim quam consectetur quibusdam magni minus aut modi aliquid.</p>
-                            </section>
-                        </div>
-                        <div class="4u 12u$(medium)">
-                            <section class="box">
-                                <i class="icon big rounded color9 fa-desktop"></i>
-                                <h3>Consectetur adipisicing</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium ullam consequatur repellat debitis maxime.</p>
-                            </section>
-                        </div>
-                        <div class="4u$ 12u$(medium)">
-                            <section class="box">
-                                <i class="icon big rounded color6 fa-rocket"></i>
-                                <h3>Adipisicing elit totam</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eaque eveniet, nesciunt molestias. Ipsam, voluptate vero.</p>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </section>       
-        
 
 
 
@@ -283,7 +250,7 @@
     <script src="views/app/js/plugins.js"></script>
     <script src="views/app/js/main.js"></script>
     <script>
-        
+
     </script>
 
 </body>
