@@ -2,7 +2,7 @@
 <!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en">
+<html class="no-js" lang="es">
 <!--<![endif]-->
 
 <head>
@@ -45,8 +45,8 @@
 
     <!-- favicons
     ================================================== -->
-    <link rel="shortcut icon" href="html/publicpage/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="views/app/images/termo.ico" type="image/x-icon">
+    <link rel="icon" href="views/app/images/termo.ico" type="image/x-icon">
 
 </head>
 
@@ -67,19 +67,19 @@
             <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
 
             <div class="header-nav__content">
-                <h3>Navigation</h3>
+                <h3>Navegación</h3>
 
                 <ul class="header-nav__list">
-                    <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
-                    <li><a class="smoothscroll"  href="#services" title="services">Services</a></li>
-                    <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
-                    <li><a class="smoothscroll"  href="#clients" title="clients">Clients</a></li>
-                    <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
+                    <li class="current"><a class="smoothscroll"  href="#home" title="home">Inicio</a></li>
+                    <li><a class="smoothscroll"  href="#about" title="about">Mediciones</a></li>
+                    <li><a class="smoothscroll"  href="#services" title="services">Equipo</a></li>
+                    <li><a class="smoothscroll"  href="#works" title="works">Importancia</a></li>
+                    <li><a class="smoothscroll"  href="#clients" title="clients">Contacto</a></li>
+                    
                 </ul>
 
-                <p>Perspiciatis hic praesentium nesciunt. Et neque a dolorum <a href='#0'>voluptatem</a> porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis neque reprehenderit.</p>
-
+          <!-- Iconos de Twitter Facebpk 
+   
                 <ul class="header-nav__social">
                     <li>
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -97,9 +97,8 @@
                         <a href="#"><i class="fa fa-dribbble"></i></a>
                     </li>
                 </ul>
-
-            </div> <!-- end header-nav__content -->
-
+-->
+            </div> 
         </nav>  <!-- end header-nav -->
 
         <a class="header-menu-toggle" href="#0">

@@ -49,4 +49,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <script src="views/app/js/generales.js"></script>
         <script src="extlibs/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+        <link rel="shortcut icon" href="views/app/images/termo.ico" type="image/x-icon">
+    <link rel="icon" href="views/app/images/termo.ico" type="image/x-icon">
 </head>

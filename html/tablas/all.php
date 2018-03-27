@@ -113,21 +113,21 @@
 	
       <script type="text/javascript">
       	$(document).ready(function(){
-      		var datos = {"sensor":"grafico_dht11","limit":"5"}
+      		var datos = {"sensor":"sensorT","limit":"5"}
       				$.ajax({ 
   			 type    : "POST",
    			url     : "core/models/ultimos.php",
    			dataType: "json",
    			data: datos,           
 	   success:function(data) {
-   		 
+   		 console.log(data);
    		 var table = $("#example1 tbody");
 			    		$.each(data,function(i){
 			        table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
 			    });
 			   }
 			})
-      		var dt = {"sensor":"grafico_mq7","limit":"5"}		
+      		var dt = {"sensor":"sensorOz","limit":"5"}		
 			$.ajax({ 
 					  			 type    : "POST",
 					   			url     : "core/models/ultimos.php",
@@ -141,7 +141,7 @@
 					    });
 					   }
 				})
-			var dt3 = {"sensor":"grafico_mq131","limit":"5"}	
+			var dt3 = {"sensor":"sensorPm","limit":"5"}	
 			$.ajax({ 
 					  			 type    : "POST",
 					   			url     : "core/models/ultimos.php",

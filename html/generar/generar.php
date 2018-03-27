@@ -25,9 +25,9 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Tipo de Informe</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Gráfico</option>
-                  <option>Tabla</option>
+                <select class="form-control select2" id="tipoSelect" style="width: 100%;">
+                  <option selected="selected">GRAFICO</option>
+                  <option>TABLA</option>
                   <option>PDF</option>
                 </select>
               </div>
@@ -38,11 +38,11 @@
                <div class="form-group">
                  <label>Sensor</label>
                   </br>
-                  <input type="checkbox" class="minimal" value="1" id="c1"> Sensor Temperatura DHT11 </br>
-                  <input type="checkbox" class="minimal" value="2" id="c2"> Sensor Ozono </br>
-                  <input type="checkbox" class="minimal" value="3" id="c3"> Sensor PM 2.5 </br>
-                  <input type="checkbox" class="minimal" value="4" id="c4"> Sensor Dióxido de Carbono </br>
-                  <input type="checkbox" class="minimal" value="5" id="c5"> Sensor Nitrógeno </br>
+                  <input type="checkbox" class="minimal" value="sensorT" id="c1"> Sensor Temperatura DHT11 </br>
+                  <input type="checkbox" class="minimal" value="sensorOz" id="c2"> Sensor Ozono </br>
+                  <input type="checkbox" class="minimal" value="sensorPm" id="c3"> Sensor PM 2.5 </br>
+                  <input type="checkbox" class="minimal" value="sensorDx" id="c4"> Sensor Dióxido de Carbono </br>
+                  <input type="checkbox" class="minimal" value="sensorT" id="c5"> Sensor Nitrógeno </br>
 
               </div>
               <div class="form-group">
@@ -51,11 +51,12 @@
                 <!-- /.input group -->
 
               <div class="form-group">
-                <input type="radio" name="r1" class="minimal">Día
-                <input type="date" class="form-control" id="datepicker">
-                <input type="radio" name="r1" class="minimal">Fechas
-                <input type="date" class="form-control" id="datepicker">
-                <input type="date" class="form-control" id="datepicker">
+                <input type="radio" id="r1" class="minimal">Día
+                <input type="date" class="form-control" id="datepickerD">
+                <input type="radio" id="r2" class="minimal">Fechas
+                <input type="date" class="form-control" id="datepickerS">
+              </br>
+                <input type="date" class="form-control" id="datepickerE">
                  
           
               </div>
@@ -63,10 +64,7 @@
             <button class="button" onclick="Generar()">Generar</button>
           
         <!-- /.box-body -->
-        <div class="box-footer">
-          Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
-          the plugin.
-        </div>
+    
       </div>
             </div>
             <!-- /.box-body -->
@@ -76,24 +74,32 @@
 
       
    <!-- SEGUNDO GRAFICO SENSOR -->
+    <section >
       <div class="row" id="">
         <div class="col-md-12">
           <!-- AREA CHART -->
-          <div class="box box-primary" id="generado">
-           
-        
+          <div class="box box-primary">
+            <div class="box-body" id="tab">
+                
+                </div>
           </div>
           <!-- /.box -->          <!-- /.box -->
 
         </div>
         <!-- /.col (RIGHT) -->
       </div>
-
+</section>
     
     </section>
       <script src="extlibs/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="extlibs/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="views/app/js/jspdf.js"></script>
+
+  <script src="views/app/js/standard_fonts_metrics.js"></script>
+  <script src="views/app/js/split_text_to_size.js"></script>
+  <script src="views/app/js/jspdf.debug.js"></script>
+    <script src="views/app/js/jspdf.plugin.autotable.min.js"></script>
 <!-- SlimScroll -->
 	
       <script type="text/javascript">
@@ -119,6 +125,8 @@
       radioClass   : 'iradio_flat-green'
     })
 
+  });
+
 
 
           /*Inicializar los datepickers
@@ -141,59 +149,164 @@
     )
 */
     //Date picker
-      		var datos = {"sensor":"grafico_dht11","limit":"5"}
-      				$.ajax({ 
-  			 type    : "POST",
-   			url     : "core/models/ultimos.php",
-   			dataType: "json",
-   			data: datos,           
-	   success:function(data) {
-   		 
-   		 var table = $("#example1 tbody");
-			    		$.each(data,function(i){
-			        table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
-			    });
-			   }
-			})
-      		var dt = {"sensor":"grafico_mq7","limit":"5"}		
-			$.ajax({ 
-					  			 type    : "POST",
-					   			url     : "core/models/ultimos.php",
-					   			dataType: "json",
-					   			data: dt,           
-						   success:function(data) {
-					   		 
-					   		 var table = $("#example2 tbody");
-					    		$.each(data,function(i){
-					        table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
-					    });
-					   }
-				})
-			var dt3 = {"sensor":"grafico_mq131","limit":"5"}	
-			$.ajax({ 
-					  			 type    : "POST",
-					   			url     : "core/models/ultimos.php",
-					   			dataType: "json",
-					   			data: dt3,           
-						   success:function(data) {
-					   		 
-					   		 var table = $("#example3 tbody");
-					    		$.each(data,function(i){
-					        table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
-					    });
-					   }
-				})
-	
-		});
+     
+      	
+
+
+          /*---------Segundo AJAX--------------*/
+			 
 
         function Generar()
         {
-          var select = [];
-           $("input:checkbox:checked").each(function() {
-             alert($(this).val());
-             select.push($(this).val());
 
-        });
-           alert("Hay seleccionados"+select.length);
+           
+          var select = [];
+          console.log(select.length);
+           $("input:checkbox:checked").each(function() {
+             select.push($(this).val());
+           }
+           );
+           if(select.length == 0)
+           {
+            console.log(select.length);
+              alert("POR FAVOR SELECCIONE UN SENSOR");
+              
+             return;
+           }
+           if($('#tipoSelect :selected').text() == "GRAFICO")
+           {
+              generargrafico();
+           }
+            if($('#tipoSelect :selected').text() == "PDF")
+           {
+              GenerarPDF();
+           }
+           if($('#tipoSelect :selected').text() == "TABLA")
+           {
+              generarTabla();
+           }
+           console.log("Has seleccionado los sensores");
+           var sensor;
+           for(sensor in select)
+           {
+              alert(select[sensor]);
+              console.log(select[sensor]);
+           }
+
         }
+        function ir()
+        {
+              $('html, body').animate({
+            scrollTop: $("#tab").offset().top
+               }, 2000);
+        }
+        function generargrafico()
+        {
+
+                       $.ajax({
+                     url: "core/models/ultimos.php",
+                    method: "POST",
+                    data:{"sensor":"sensorDx"},
+                   success: function(data) {
+                    console.log(data);
+                    $("#tab").empty();
+                    var d = "<div class='chart' id='generado'></div>";
+                    $("#tab").append(d);
+                   var divg = $("#generado");
+                   var chart = document.createElement("canvas");
+                   alert("stop");
+                    chart.id="graficoTemperatura";
+                    chart.style="height:250px";
+                    $("#generado").append(chart);
+                  var fecha = [];
+                  var lectura = [];
+                  var lectura2 = [];
+
+                  for(var i in data) {
+                    fecha.push(data[i].fecha);
+                    lectura.push(data[i].lectura);
+                  }
+
+                  var chartdata = {
+                    labels: fecha,
+                    datasets : [
+                      {
+                        label: 'Sensor MQ131',
+                        borderColor: '#990000',
+                        fill: false,
+                        data: lectura
+                      }]
+                  };
+
+                  var ctx = $("#graficoTemperatura");
+
+                  var line = new Chart(ctx, {
+                    type: 'line',
+                    data: chartdata,      
+                  });
+                   ir();
+                },
+                error: function(data) {
+                  console.log(data);
+                  }
+                });
+         }
+         function GenerarPDF()
+         {
+            $.ajax({
+       url: "core/models/ultimos.php",
+       method: "POST",
+       data:{"sensor":"sensorDx"},
+      success: function(data) {
+      
+      var fecha = [];
+      var lectura = [];
+      var a = Array();
+      
+      for(var i in data) {
+        a.push([[data[i].numero],[data[i].fecha],[data[i].lectura]]);
+      }
+     var columns = ["NUMERO","FECHA","LECTURA"];
+     var datas =[[1,"2017-12-12",980],[1,"2017-12-12",980],[1,"2017-12-12",980]];
+                
+          var doc = new jsPDF();
+          console.log("Este el el arrregloa");
+          console.log(a);
+          console.log("Este el el arrreglo datas");
+          console.log(datas);
+
+       doc.autoTable(columns, a);
+     
+        var string = doc.output('datauristring');
+        doc.save();
+                  }
+    
+       })
+          }
+           function generarTabla()
+        {
+                       $.ajax({
+                     url: "core/models/ultimos.php",
+                    method: "POST",
+                    data:{"sensor":"sensorDx"},
+                   success: function(data) {
+                     console.log("Aqui estas en la tabla");
+                    console.log(data);
+                    var t =$("#tab");
+                    $('#tab').empty();
+                    t.empty();
+                    var tabla = "<table id='example1' class='table table-bordered table-striped'><thead>"+
+                    "<tr><th>Lectura No.</th><th>Valor</th><th>Fecha</th></tr></thead><tbody></tbody></table>";
+                    t.append(tabla);
+                    var table = $("#example1 tbody");
+                     $.each(data,function(i){
+                     table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
+          });
+                   ir();
+                },
+                error: function(data) {
+                  console.log(data);
+                  }
+                });
+         }
       </script>
