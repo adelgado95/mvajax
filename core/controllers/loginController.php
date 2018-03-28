@@ -1,3 +1,3 @@
 <?php
-	include('html/login/login.php');
+	include(HTML_DIR.'login/login.php');
 ?>

@@ -1,3 +1,3 @@
 <?php
-	include('html/publicpage/index.php');
+	include(HTML_DIR.'publicpage/index.php');
 ?>
