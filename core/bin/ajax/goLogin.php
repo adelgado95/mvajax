@@ -19,7 +19,7 @@ if(!empty($_POST['user']) and !empty($_POST['pass']))
 	}
 	$db->liberar($sql);
 	$db->close();
-	
+
 }
 else
 {

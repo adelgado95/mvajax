@@ -12,7 +12,8 @@
 					'user'=>$d['user'],
 					'pass'=>$d['email'],
 					'permisos'=>$d['permisos'],
-					'imagen'=>$d['imagen']
+					'imagen'=>$d['imagen'],
+					'area_trabajo'=>$d['area_trabajo']
 				);
 			}
 		}

@@ -39,10 +39,11 @@
   <![endif]-->
 
   <!-- Google Font -->
+
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <script src="views/app/js/generales.js"></script>
-
+        <script src="views/app/publicpage/js/jquery.min.js"></script>
     <!-- favicons
     ================================================== -->
     <link rel="shortcut icon" href="views/app/images/termo.ico" type="image/x-icon">
@@ -75,11 +76,11 @@
                     <li><a class="smoothscroll"  href="#services" title="services">Equipo</a></li>
                     <li><a class="smoothscroll"  href="#works" title="works">Importancia</a></li>
                     <li><a class="smoothscroll"  href="#clients" title="clients">Contacto</a></li>
-                    
+
                 </ul>
 
-          <!-- Iconos de Twitter Facebpk 
-   
+          <!-- Iconos de Twitter Facebpk
+
                 <ul class="header-nav__social">
                     <li>
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -98,7 +99,7 @@
                     </li>
                 </ul>
 -->
-            </div> 
+            </div>
         </nav>  <!-- end header-nav -->
 
         <a class="header-menu-toggle" href="#0">
@@ -161,7 +162,8 @@
 
         <div class="row section-header has-bottom-sep" data-aos="fade-up">
             <div class="col-full">
-                <h2 class="subhead subhead--dark">Últimos Valores</h2>
+                <h3 class="subhead subhead--dark">Vea las últimas mediciones</h3>
+                <h1 class="subhead subhead--dark" id="hactual">00-00-0000 00:00:00</h1>
             </div>
         </div> <!-- end section-header -->
 
@@ -169,31 +171,32 @@
 
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon">
-                    <i class="icon-paint-brush"></i>
+                  <img src="views/app/publicpage/images/iconon.png" width="48px" height="48px">
                 </div>
                 <div class="service-text">
-                    <h3 class="h2">Nitrógeno : 45 ppm</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consectetur doloribus fugiat ab aliquam dicta natus vel nulla, illum ducimus neque, earum? Deleniti, blanditiis? Sunt, iure aperiam doloribus perferendis dolore!
+                    <h3 class="h2" id="OxN">Óxido de Nitrógeno :  ppm</h3>
+                    <p>El óxido de nitrógeno esta relacionado con afecciones del sistema nervioso Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam assumenda eius voluptatem, ut vitae molestiae minus id nihil voluptates ad rem fugit dolore qui placeat itaque, officia fugiat obcaecati expedita.
                     </p>
                 </div>
             </div>
 
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon">
-                    <i class="icon-group"></i>
+                  <img src="views/app/publicpage/images/f.ico" width="48px" height="48px">
                 </div>
                 <div class="service-text">
-                    <h3 class="h2">Temperatura</h3>
+                    <h3 class="h2" id="T">Temperatura:  C &deg </h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam suscipit, eius impedit id deleniti asperiores aut non in ad recusandae doloribus sapiente quibusdam nemo, autem aliquid reiciendis. Reprehenderit, quibusdam, sequi!
                     </p>
                 </div>
             </div>
 
             <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon" style="border: solid;border-width:5px;background-image: url('html/publicpage/images/iconoc.png'); ">
-                </div>
+              <div class="service-icon">
+                <img src="views/app/publicpage/images/iconoo.png" width="48px" height="48px">
+              </div>
                 <div class="service-text">
-                    <h3 class="h2">Ozono</h3>
+                    <h3 class="h2" id="Oz">Ozono: ppm</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa alias, non earum dolores perspiciatis dolorum quasi aspernatur nobis sed, ut assumenda quaerat sunt, laborum iste ullam, aut. Repellat, inventore, commodi.
                     </p>
                 </div>
@@ -201,10 +204,10 @@
 
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon">
-                    <i class="icon-earth"></i>
+                    <img src="views/app/publicpage/images/iconoc.png" width="48px" height="48px">
                 </div>
                 <div class="service-text">
-                    <h3 class="h2">Monóxido</h3>
+                    <h3 class="h2" id="Dx">Dióxido de Carbono: ppm</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi maiores fugit consequatur a possimus quis perferendis beatae mollitia illo laborum illum ad necessitatibus blanditiis, earum vitae porro, molestias sequi rem.
                     </p>
                 </div>
@@ -212,10 +215,10 @@
 
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon">
-                    <i class="icon-cube"></i>
+                    <img src="views/app/publicpage/images/iconop10.png" width="48px" height="48px">
                 </div>
                 <div class="service-text">
-                    <h3 class="h2">Azufre</h3>
+                    <h3 class="h2" id="Pm">Polvo 2.5pm:  ppm</h3>
                     <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.
                     Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
                     Sunt suscipit voluptas ipsa in tempora esse soluta sint.
@@ -226,7 +229,7 @@
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon"><i class="icon-lego-block"></i></div>
                 <div class="service-text">
-                    <h3 class="h2">Lorem</h3>
+                    <h3 class="h2" id="OA">Óxido de Azufre: 34ppm</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quas alias ipsa quae sit saepe est nulla repudiandae natus, quod cumque laudantium dolor sed, illum. Quidem officia eveniet quam. Labore.
                     </p>
                 </div>
@@ -241,6 +244,84 @@
         </section>
 
 
+        <section id="clients" class="s-clients">
+
+       <div class="row section-header" data-aos="fade-up">
+           <div class="col-full">
+               <h3 class="subhead">Work Team</h3>
+               <h1 class="display-2">Personal</h1>
+           </div>
+       </div> <!-- end section-header -->
+       <div class="row services-list block-1-2 block-tab-full">
+         <div class="col-block service-item" data-aos="fade-up">
+             <div class="service-icon">
+                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
+             </div>
+             <div class="service-text">
+                 <h3 class="h2" >Alfonso Delgado</h3>
+                 <span class="testimonials__pos">Programador</span>
+
+             </div>
+         </div>
+
+         <div class="col-block service-item" data-aos="fade-up">
+             <div class="service-icon">
+                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
+             </div>
+             <div class="service-text">
+                 <h3 class="h2" >&nbsp Alfonso Delgado</h3>
+
+             </div>
+         </div>
+
+         <div class="col-block service-item" data-aos="fade-up">
+             <div class="service-icon">
+                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
+             </div>
+             <div class="service-text">
+                 <h3 class="h2" >Alfonso Delgado</h3>
+
+             </div>
+         </div>
+
+
+         <div class="col-block service-item" data-aos="fade-up">
+             <div class="service-icon">
+                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
+             </div>
+             <div class="service-text">
+                 <h3 class="h2" >Alfonso Delgado</h3>
+
+             </div>
+         </div>
+
+
+         <div class="col-block service-item" data-aos="fade-up">
+             <div class="service-icon">
+                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
+             </div>
+             <div class="service-text">
+                 <h3 class="h2" >Alfonso Delgado</h3>
+
+             </div>
+         </div>
+
+         <div class="col-block service-item" data-aos="fade-up">
+             <div class="service-icon">
+                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
+             </div>
+             <div class="service-text">
+                 <h3 class="h2" >Alfonso Delgado</h3>
+
+             </div>
+         </div>
+
+
+       </div> <!-- end services-list -->
+
+   </section> <!-- end s-clients -->
+
+
 
 
     <!-- Java Script
@@ -249,7 +330,31 @@
     <script src="views/app/js/plugins.js"></script>
     <script src="views/app/js/main.js"></script>
     <script>
+    setInterval(function(){
+      $.ajax({
+url: "core/models/lastmeasuresall.php",
+method: "POST",
+success: function(data) {
+  if(data[0].fecha == $("#hactual").text())
+  {
+    console.log("No ha cambiado");
+  }
+  else {
+    $("#hactual").text(data[0].fecha);
+    $("#T").text("Temperatura: "+data[0].sensorT+" C");
+      $("#Oz").text("Ozono: "+data[0].sensorOz+"ppm");
+      $("#Dx").text("Dióxido de Carbono: "+data[0].sensorDx+" ppm");
+      $("#Pm").text("Polvo 2.5pm: "+data[0].sensorPm+" ppm");
+    console.log("Cambio");
+  }
 
+},
+error: function(data) {
+  console.log(data);
+}
+});
+
+}, 1000);
     </script>
 
 </body>

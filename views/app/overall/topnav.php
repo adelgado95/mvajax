@@ -73,7 +73,7 @@ desired effect
 
                 <p>'.
                  strtoupper($users[$_SESSION['app_id']]['user'])
-                  .' <small>Categoría de Usuario </small>
+                  .' <small>'.strtoupper($users[$_SESSION['app_id']]['area_trabajo']).'</small>
                 </p>
               </li>
               <!-- Menu Body -->

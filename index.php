@@ -1,4 +1,4 @@
-<?php 
+<?php
 require('core/core.php');
 if(isset($_GET['view']))
 {
@@ -13,6 +13,13 @@ if(isset($_GET['view']))
 }
 else
 {
-	include('core/controllers/indexController.php');
+	if(isset($_SESSION['app_id']))
+	{
+			include('core/controllers/adminController.php');
+	}
+	else
+	{
+			include('core/controllers/indexController.php');
+	}
 }
 ?>
