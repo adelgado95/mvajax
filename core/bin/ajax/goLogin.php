@@ -9,9 +9,9 @@ if(!empty($_POST['user']) and !empty($_POST['pass']))
 		$_SESSION['app_id'] = $db->recorrer($sql)[0];
 		if($_POST['session'])
 			{ini_set('session.cookie.lifetime', time() + (60*60*24));
-	echo 1;
+				echo 1;
 		}
-		
+
 	}
 	else
 	{

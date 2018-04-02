@@ -5,7 +5,7 @@
 ?>
 
   <!-- Content Wrapper. Contains page content -->
-  
+
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -63,13 +63,13 @@
                 </thead>
                 <tbody>
                 </tbody>
-               
+
               </table>
             </div>
             <!-- /.box-body -->
           </div>
         </div>
-          
+
 
       </div>
         <!-- /.col (LEFT) -->
@@ -97,7 +97,7 @@
 
 
          <div class="row">
-      
+
           <!-- /.box -->
 
           <!-- BAR CHART -->
@@ -124,7 +124,7 @@
                 </thead>
                 <tbody>
                 </tbody>
-               
+
               </table>
             </div>
             <!-- /.box-body -->
@@ -133,7 +133,7 @@
         </div>
       <!-- /.row -->
 
-    </section>    ';    
+    </section>    ';
 
     echo '</section>';
     }
@@ -150,7 +150,7 @@
        </section>
     <!-- Main content -->
     <section class="content container-fluid">
-    
+
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
@@ -204,8 +204,8 @@
       var line = new Chart(ctx, {
         type: 'line',
         data: chartdata,
-       
-        
+
+
       });
     },
     error: function(data) {
@@ -250,8 +250,8 @@
       var line = new Chart(ctx, {
         type: 'line',
         data: chartdata,
-       
-        
+
+
       });
     },
     error: function(data) {
@@ -260,9 +260,9 @@
   });
 
     })
-  
+
 </script>
-<?php 
+<?php
   include(HTML_DIR.'overall/footer.php');
 ?>
 

@@ -23,9 +23,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="extlibs/admin/dist/css/skins/skin-blue.min.css">
 
-    <link rel="stylesheet" href="extlibs/admin/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="views/app/css/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
+
    <link rel="stylesheet" href="extlibs/admin/plugins/iCheck/all.css">
   <!-- iCheck for checkboxes and radio inputs -->
 
@@ -53,7 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-        
+
         <script src="views/app/js/generales.js"></script>
         <script src="extlibs/admin/bower_components/jquery/dist/jquery.min.js"></script>
 

@@ -1,5 +1,5 @@
 
-      
+
       Graficos</section>
     <!-- Main content -->
     <section class="content">
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-     
+
       <div class="row">
         <div class="col-md-12">
           <!-- AREA CHART -->
@@ -115,7 +115,7 @@
 			var line = new Chart(ctx, {
 				type: 'line',
 				data: chartdata,
-       
+
 			});
 		},
 		error: function(data) {
@@ -153,7 +153,7 @@
       var line = new Chart(ctx, {
         type: 'line',
         data: chartdata,
-       
+
       });
     },
     error: function(data) {
@@ -192,7 +192,7 @@
       var line = new Chart(ctx, {
         type: 'line',
         data: chartdata,
-       
+
       });
     },
     error: function(data) {
@@ -243,7 +243,7 @@
 				options: {
 					animation: false
 				},
-       
+
 			});
 		},
 		error: function(data) {

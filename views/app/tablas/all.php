@@ -1,5 +1,5 @@
 
-      
+
       Graficos</section>
     <!-- Main content -->
     <section class="content">
@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                 </tbody>
-               
+
               </table>
             </div>
             <!-- /.box-body -->
@@ -62,7 +62,7 @@
                 </thead>
                 <tbody>
                 </tbody>
-               
+
               </table>
             </div>
             <!-- /.box-body -->
@@ -97,7 +97,7 @@
                 </thead>
                 <tbody>
                 </tbody>
-               
+
               </table>
             </div>
             <!-- /.box-body -->
@@ -107,18 +107,18 @@
         </div>
         <!-- /.col (RIGHT) -->
       </div>
-      <script src="extlibs/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-	<script src="extlibs/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+      <script src="views/app/js/datatables.net/jquery.dataTables.min.js"></script>
+	<script src="views/app/js/datatables.net-bs/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
-	
+
       <script type="text/javascript">
       	$(document).ready(function(){
       		var datos = {"sensor":"sensorT","limit":"5"}
-      				$.ajax({ 
+      				$.ajax({
   			 type    : "POST",
    			url     : "core/models/ultimos.php",
    			dataType: "json",
-   			data: datos,           
+   			data: datos,
 	   success:function(data) {
    		 console.log(data);
    		 var table = $("#example1 tbody");
@@ -127,28 +127,28 @@
 			    });
 			   }
 			})
-      		var dt = {"sensor":"sensorOz","limit":"5"}		
-			$.ajax({ 
+      		var dt = {"sensor":"sensorOz","limit":"5"}
+			$.ajax({
 					  			 type    : "POST",
 					   			url     : "core/models/ultimos.php",
 					   			dataType: "json",
-					   			data: dt,           
+					   			data: dt,
 						   success:function(data) {
-					   		 
+
 					   		 var table = $("#example2 tbody");
 					    		$.each(data,function(i){
 					        table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
 					    });
 					   }
 				})
-			var dt3 = {"sensor":"sensorPm","limit":"5"}	
-			$.ajax({ 
+			var dt3 = {"sensor":"sensorPm","limit":"5"}
+			$.ajax({
 					  			 type    : "POST",
 					   			url     : "core/models/ultimos.php",
 					   			dataType: "json",
-					   			data: dt3,           
+					   			data: dt3,
 						   success:function(data) {
-					   		 
+
 					   		 var table = $("#example3 tbody");
 					    		$.each(data,function(i){
 					        table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
@@ -172,27 +172,27 @@
 			 /*$("#example2 tbody > tr").remove();
 			  $("#example1 tbody > tr").remove();
 			  var datos = {"sensor":"grafico_dht11"}
-      				$.ajax({ 
+      				$.ajax({
   			 type    : "POST",
    			url     : "core/models/ultimos.php",
    			dataType: "json",
-   			data: datos,           
+   			data: datos,
 	   success:function(data) {
-   		 
+
    		 var table = $("#example1 tbody");
 			    		$.each(data,function(i){
 			        table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
 			    });
 			   }
 			})
-      		var dt = {"sensor":"grafico_mq7"}		
-			$.ajax({ 
+      		var dt = {"sensor":"grafico_mq7"}
+			$.ajax({
   			 type    : "POST",
    			url     : "core/models/ultimos.php",
    			dataType: "json",
-   			data: dt,           
+   			data: dt,
 	   success:function(data) {
-   		 
+
    		 var table = $("#example2 tbody");
     		$.each(data,function(i){
         table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");

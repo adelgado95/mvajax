@@ -1,5 +1,5 @@
 
-      
+
     <h3>
       Generar
     </h3>  </section>
@@ -52,23 +52,47 @@
 
               <div class="form-group">
                 <label >
-                    <input type="radio" name="radiofecha" id="r1" class="minimal">Día  
+                    <input type="radio" name="radiofecha" id="r1" class="minimal">Día
                 </label>
                 <input type="text" class="form-control" id="datepickerD">
                 <label >
-                    <input type="radio" name="radiofecha" id="r2" class="minimal">Fechas  
+                    <input type="radio" name="radiofecha" id="r2" class="minimal">Fechas
                 </label>
                 <input type="text" class="form-control" id="datepickerS">
-              </br>
-                <input type="text" class="form-control" id="datepickerE">
-                 
-                
               </div>
+
+
             </div>
+            <div class="form-group">
+              <label>Seleccionar Hora:</label>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" class="minimal" value="option1">
+                        Todas
+                          <input type="text" class="form-control" id="datepickerS">
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" class="minimal" value="option2">
+                        Option two can be something else and selecting it will deselect option one
+                        <input type="text" class="form-control" id="datepickerS">
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios3" class="minimal" value="option3">
+                        Option three is disabled
+                        <input type="text" class="form-control" id="datepickerS">
+                      </label>
+                    </div>
+                  </div>
+
+
             <button class="button" onclick="Generar()">Generar</button>
-          
+
         <!-- /.box-body -->
-    
+
       </div>
             </div>
             <!-- /.box-body -->
@@ -76,7 +100,7 @@
            <!---------------------------------RowPrincipal------------------>
 
 
-      
+
    <!-- SEGUNDO GRAFICO SENSOR -->
     <section >
       <div class="row" id="">
@@ -84,7 +108,7 @@
           <!-- AREA CHART -->
           <div class="box box-primary">
             <div class="box-body" id="tab">
-                 
+
             </div>
           </div>
           <!-- /.box -->          <!-- /.box -->
@@ -93,11 +117,11 @@
         <!-- /.col (RIGHT) -->
       </div>
 </section>
-    
+
     </section>
-      <script src="extlibs/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+      <script src="views/app/js/datatables.net/jquery.dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<script src="extlibs/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+	<script src="views/app/js/datatables.net-bs/dataTables.bootstrap.min.js"></script>
   <script src="views/app/js/jspdf.js"></script>
   <script src="views/app/js/standard_fonts_metrics.js"></script>
   <script src="views/app/js/split_text_to_size.js"></script>
@@ -116,10 +140,10 @@
 
 
 <!-- SlimScroll -->
-	
+
       <script type="text/javascript">
       	$(document).ready(function(){
-         
+
           /*Inicializar ichecks*/
           $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
@@ -148,10 +172,10 @@
          $('#datepickerS').daterangepicker()
     //Date range picker with time picker
     //Date range as a button
-   
+
 
     //Date picker
-   
+
 
 
 
@@ -175,17 +199,17 @@
     )
 */
     //Date picker
-     
-      	
+
+
 
 
           /*---------Segundo AJAX--------------*/
-			 
+
 
         function Generar()
         {
 
-           
+
           var select = [];
           console.log(select.length);
            $("input:checkbox:checked").each(function() {
@@ -196,7 +220,7 @@
            {
             console.log(select.length);
               alert("POR FAVOR SELECCIONE UN SENSOR");
-              
+
              return;
            }
            alert(select[0]);
@@ -216,7 +240,7 @@
            }
            else
            {
-
+              alert("Seleccioanste mas de un sensor")
            }
            console.log("Has seleccionado los sensores");
            var sensor;
@@ -235,7 +259,7 @@
         }
         function generargrafico(valor)
         {
-              
+
                        $.ajax({
                      url: "core/models/ultimos.php",
                     method: "POST",
@@ -275,7 +299,7 @@
 
                   var line = new Chart(ctx, {
                     type: 'line',
-                    data: chartdata,      
+                    data: chartdata,
                   });
                    ir();
                 },
@@ -291,17 +315,17 @@
        method: "POST",
        data:{"sensor":valor},
       success: function(data) {
-      
+
       var fecha = [];
       var lectura = [];
       var a = Array();
-      
+
       for(var i in data) {
         a.push([[data[i].numero],[data[i].fecha],[data[i].lectura]]);
       }
      var columns = ["NUMERO","FECHA","LECTURA"];
      var datas =[[1,"2017-12-12",980],[1,"2017-12-12",980],[1,"2017-12-12",980]];
-                
+
           var doc = new jsPDF();
           console.log("Este el el arrregloa");
           console.log(a);
@@ -309,11 +333,11 @@
           console.log(datas);
 
        doc.autoTable(columns, a);
-     
+
         var string = doc.output('datauristring');
         doc.save();
                   }
-    
+
        })
           }
            function generarTabla(param)

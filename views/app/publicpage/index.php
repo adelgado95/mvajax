@@ -43,7 +43,7 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <script src="views/app/js/generales.js"></script>
-        <script src="views/app/publicpage/js/jquery.min.js"></script>
+        <script src="views/app/js/jquery.min.js"></script>
     <!-- favicons
     ================================================== -->
     <link rel="shortcut icon" href="views/app/images/termo.ico" type="image/x-icon">
@@ -252,70 +252,55 @@
                <h1 class="display-2">Personal</h1>
            </div>
        </div> <!-- end section-header -->
-       <div class="row services-list block-1-2 block-tab-full">
+       <div class="row services-list block-2-2 block-tab-full">
          <div class="col-block service-item" data-aos="fade-up">
-             <div class="service-icon">
-                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
+             <div class="service-icon" style="text-align:center">
+                 <img src="views/app/images/1.jpg" style="border-radius: 50%;" width="100px" height="100px">
+                      <h3 class="h2" >Alfonso Delgado</h3>
              </div>
-             <div class="service-text">
-                 <h3 class="h2" >Alfonso Delgado</h3>
-                 <span class="testimonials__pos">Programador</span>
+          </div>
 
+          <div class="col-block service-item" data-aos="fade-up">
+              <div class="service-icon" style="text-align:center">
+                  <img src="views/app/images/1.jpg" style="border-radius: 50%;" width="100px" height="100px">
+                       <h3 class="h2" >Alfonso Delgado</h3>
+
+              </div>
+           </div>
+
+           <div class="col-block service-item" data-aos="fade-up">
+               <div class="service-icon" style="text-align:center">
+                   <img src="views/app/images/1.jpg" style="border-radius: 50%;" width="100px" height="100px">
+                        <h3 class="h2" >Alfonso Delgado</h3>
+
+               </div>
+            </div>
+
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon" style="text-align:center">
+                    <img src="views/app/images/1.jpg" style="border-radius: 50%;" width="100px" height="100px">
+                         <h3 class="h2" >Alfonso Delgado</h3>
+
+                </div>
              </div>
-         </div>
-
-         <div class="col-block service-item" data-aos="fade-up">
-             <div class="service-icon">
-                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
-             </div>
-             <div class="service-text">
-                 <h3 class="h2" >&nbsp Alfonso Delgado</h3>
-
-             </div>
-         </div>
-
-         <div class="col-block service-item" data-aos="fade-up">
-             <div class="service-icon">
-                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
-             </div>
-             <div class="service-text">
-                 <h3 class="h2" >Alfonso Delgado</h3>
-
-             </div>
-         </div>
 
 
-         <div class="col-block service-item" data-aos="fade-up">
-             <div class="service-icon">
-                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
-             </div>
-             <div class="service-text">
-                 <h3 class="h2" >Alfonso Delgado</h3>
+             <div class="col-block service-item" data-aos="fade-up">
+                 <div class="service-icon" style="text-align:center">
+                     <img src="views/app/images/1.jpg" style="border-radius: 50%;" width="100px" height="100px">
+                          <h3 class="h2" >Alfonso Delgado</h3>
 
-             </div>
-         </div>
+                 </div>
+              </div>
 
+              <div class="col-block service-item" data-aos="fade-up">
+                  <div class="service-icon" style="text-align:center">
+                      <img src="views/app/images/1.jpg" style="border-radius: 50%;" width="100px" height="100px">
+                           <h3 class="h2" >Alfonso Delgado</h3>
 
-         <div class="col-block service-item" data-aos="fade-up">
-             <div class="service-icon">
-                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
-             </div>
-             <div class="service-text">
-                 <h3 class="h2" >Alfonso Delgado</h3>
-
-             </div>
-         </div>
-
-         <div class="col-block service-item" data-aos="fade-up">
-             <div class="service-icon">
-                 <img src="views/app/images/1.jpg" style="border-radius: 50%" width="100px" height="100px">
-             </div>
-             <div class="service-text">
-                 <h3 class="h2" >Alfonso Delgado</h3>
-
-             </div>
-         </div>
-
+                  </div>
+               </div>
 
        </div> <!-- end services-list -->
 
@@ -332,29 +317,28 @@
     <script>
     setInterval(function(){
       $.ajax({
-url: "core/models/lastmeasuresall.php",
-method: "POST",
-success: function(data) {
-  if(data[0].fecha == $("#hactual").text())
-  {
-    console.log("No ha cambiado");
-  }
-  else {
-    $("#hactual").text(data[0].fecha);
-    $("#T").text("Temperatura: "+data[0].sensorT+" C");
-      $("#Oz").text("Ozono: "+data[0].sensorOz+"ppm");
-      $("#Dx").text("Dióxido de Carbono: "+data[0].sensorDx+" ppm");
-      $("#Pm").text("Polvo 2.5pm: "+data[0].sensorPm+" ppm");
-    console.log("Cambio");
-  }
+        url: "core/models/lastmeasuresall.php",
+        method: "POST",
+        success: function(data) {
+          if(data[0].fecha == $("#hactual").text())
+          {
+            console.log("No ha cambiado");
+          }
+          else {
+            $("#hactual").text(data[0].fecha);
+            $("#T").text("Temperatura: "+data[0].sensorT+" C");
+              $("#Oz").text("Ozono: "+data[0].sensorOz+"ppm");
+              $("#Dx").text("Dióxido de Carbono: "+data[0].sensorDx+" ppm");
+              $("#Pm").text("Polvo 2.5pm: "+data[0].sensorPm+" ppm");
+            console.log("Cambio");
+          }
 
-},
-error: function(data) {
-  console.log(data);
-}
-});
-
-}, 1000);
+        },
+        error: function(data) {
+          console.log(data);
+        }
+        });
+          }, 1000);
     </script>
 
 </body>
