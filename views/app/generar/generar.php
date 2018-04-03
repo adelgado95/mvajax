@@ -31,82 +31,112 @@
                   <option>PDF</option>
                 </select>
               </div>
+              <div class="form-group">
+                <label>Sensor</label>
+                 </br>
+                 <input type="checkbox" class="minimal" value="sensorT" id="c1"> Sensor Temperatura DHT11 </br>
+                 <input type="checkbox" class="minimal" value="sensorOz" id="c2"> Sensor Ozono </br>
+                 <input type="checkbox" class="minimal" value="sensorPm" id="c3"> Sensor PM 2.5 </br>
+                 <input type="checkbox" class="minimal" value="sensorDx" id="c4"> Sensor Dióxido de Carbono </br>
+                 <input type="checkbox" class="minimal" value="sensorT" id="c5"> Sensor Nitrógeno </br>
+
+             </div>
+
+
+             <div class="form-group">
+               <label >
+                   <input type="radio" name="radiofecha" id="r1" class="minimal" checked>Día
+               </label>
+               <input type="text" class="form-control" id="datepickerD">
+               <label >
+                   <input type="radio" name="radiofecha" id="r2" class="minimal">Fechas
+               </label>
+               <input type="text" class="form-control" id="datepickerS">
+             </div>
+               <button class="btn btn-default" onclick="Generar()">Generar</button>
+
+
+
             </div>
-          </div>
-           <div class="row">
+            <!--la columna de la derecha-->
             <div class="col-md-6">
-               <div class="form-group">
-                 <label>Sensor</label>
-                  </br>
-                  <input type="checkbox" class="minimal" value="sensorT" id="c1"> Sensor Temperatura DHT11 </br>
-                  <input type="checkbox" class="minimal" value="sensorOz" id="c2"> Sensor Ozono </br>
-                  <input type="checkbox" class="minimal" value="sensorPm" id="c3"> Sensor PM 2.5 </br>
-                  <input type="checkbox" class="minimal" value="sensorDx" id="c4"> Sensor Dióxido de Carbono </br>
-                  <input type="checkbox" class="minimal" value="sensorT" id="c5"> Sensor Nitrógeno </br>
-
-              </div>
               <div class="form-group">
-                <label>Seleccionar Día(s):</label>
-
-                <!-- /.input group -->
-
+                <label>Seleccionar Hora:</label>
               <div class="form-group">
+                <div class="input-group">
+                  <label >
+                      <input type="radio" name="radiohora" id="rh1" class="minimal" checked>Todas
+                  </label>
+                </div>
+
                 <label >
-                    <input type="radio" name="radiofecha" id="r1" class="minimal">Día
+                    <input type="radio" name="radiohora" id="rh2" class="minimal">Hora
                 </label>
-                <input type="text" class="form-control" id="datepickerD">
+                <input type="text" class="form-control" id="tp">
                 <label >
-                    <input type="radio" name="radiofecha" id="r2" class="minimal">Fechas
+                    <input type="radio" name="radiohora" id="rh3" class="minimal">Rango
                 </label>
-                <input type="text" class="form-control" id="datepickerS">
+                <div class="form-group">
+                Entre las:<input type="text" class="form-control" id="tp2"> y las<input type="text" class="form-control" id="tp3">
+                </div>
+
               </div>
 
 
             </div>
             <div class="form-group">
-              <label>Seleccionar Hora:</label>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" class="minimal" value="option1">
-                        Todas
-                          <input type="text" class="form-control" id="datepickerS">
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" class="minimal" value="option2">
-                        Option two can be something else and selecting it will deselect option one
-                        <input type="text" class="form-control" id="datepickerS">
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios3" class="minimal" value="option3">
-                        Option three is disabled
-                        <input type="text" class="form-control" id="datepickerS">
-                      </label>
-                    </div>
-                  </div>
+              <label>Seleccionar Intervalos:</label>
+            <div class="form-group">
+              <div class="input-group">
+                <label >
+                    <input type="radio" name="radiointer" id="ri1" class="minimal" checked>Cada 5 Minutos
+                </label>
+              </div>
+
+              <label >
+                  <input type="radio" name="radiointer" id="ri2" class="minimal"> Cada Hora
+              </label>
+
+            </div>
 
 
-            <button class="button" onclick="Generar()">Generar</button>
+          </div>
+            </div>
 
-        <!-- /.box-body -->
+          </div>
 
-      </div>
+
             </div>
             <!-- /.box-body -->
           </div>
-           <!---------------------------------RowPrincipal------------------>
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+         <!---------------------------------RowPrincipal------------------>
 
 
 
    <!-- SEGUNDO GRAFICO SENSOR -->
-    <section >
-      <div class="row" id="">
+    <section class="content">
+      <div class="row">
         <div class="col-md-12">
           <!-- AREA CHART -->
           <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Callitoculito</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
             <div class="box-body" id="tab">
 
             </div>
@@ -118,7 +148,7 @@
       </div>
 </section>
 
-    </section>
+
       <script src="views/app/js/datatables.net/jquery.dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="views/app/js/datatables.net-bs/dataTables.bootstrap.min.js"></script>
@@ -132,16 +162,19 @@
     <script src="views/app/js/datatables.net-bs/dataTables.bootstrap.min.js"></script>
 
     <script src="views/app/js/moment/min/moment.min.js"></script>
-<script src="views/app/js/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.27/daterangepicker.min.js"></script>
 <!-- bootstrap datepicker -->
-<script src="views/app/js/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 <script src="views/app/css/iCheck/icheck.min.js"></script>
+<script src="views/app/js/wickedpicker/wickedpicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.min.js"></script>
 <!-- bootstrap color picker -->
 
 
 <!-- SlimScroll -->
 
       <script type="text/javascript">
+      var consulta="";
       	$(document).ready(function(){
 
           /*Inicializar ichecks*/
@@ -165,11 +198,23 @@
       radioClass   : 'iradio_flat-green'
     })
 
-  });
-         $('#datepickerD').datepicker({
-      autoclose: true
+
+    $('#datepickerD').datepicker({
+        format: 'yyyy-mm-dd',
     })
-         $('#datepickerS').daterangepicker()
+    $('#datepickerD').datepicker("setDate", new Date())
+    $('#datepickerS').daterangepicker({
+      locale: {
+     format: 'YYYY-MM-DD'
+       }
+    })
+    $('#tp,#tp2,#tp3').wickedpicker({
+      twentyFour: true
+    })
+
+
+  })
+
     //Date range picker with time picker
     //Date range as a button
 
@@ -206,10 +251,37 @@
           /*---------Segundo AJAX--------------*/
 
 
+        function ObtenerParametros(sensores)
+        {
+          var cadena="";
+          var count =0;
+            for(var i in sensores)
+            {
+                if(count == 0)
+                  cadena+=sensores[i];
+                  else
+                  cadena+=","+sensores[i];
+                  count++;
+            }
+            alert(cadena);
+            if($('#r1').is(':checked'))
+            {
+              var date = $("#datepickerD").val();
+              console.log(date);
+            }
+            if($('#r2').is(':checked'))
+            {
+                var date = $("#datepickerS").val();
+                var start = date.substr(0,10);
+                var end = date.substr(13,11);
+                console.log(start);
+                console.log(end);
+            }
+          
+
+        }
         function Generar()
         {
-
-
           var select = [];
           console.log(select.length);
            $("input:checkbox:checked").each(function() {
@@ -220,10 +292,9 @@
            {
             console.log(select.length);
               alert("POR FAVOR SELECCIONE UN SENSOR");
-
              return;
            }
-           alert(select[0]);
+           var parametros =ObtenerParametros(select);
            if(select.length == 1){
                if($('#tipoSelect :selected').text() == "GRAFICO")
                {
@@ -240,16 +311,81 @@
            }
            else
            {
-              alert("Seleccioanste mas de un sensor")
+             if($('#tipoSelect :selected').text() == "GRAFICO")
+             {
+                mgenerargrafico(select);
+             }
+              if($('#tipoSelect :selected').text() == "PDF")
+             {
+                mgenerarPDF(select);
+             }
+             if($('#tipoSelect :selected').text() == "TABLA")
+             {
+                mgenerarTabla(select);
+             }
            }
            console.log("Has seleccionado los sensores");
-           var sensor;
+          /* var sensor;
            for(sensor in select)
            {
               alert(select[sensor]);
               console.log(select[sensor]);
-           }
+           }*/
 
+        }
+        function mgenerargrafico(sensores)
+        {
+
+
+
+              /*
+                  $.ajax({
+                 url: "core/models/ultimos.php",
+                method: "POST",
+                data:{"sensor":valor},
+               success: function(data) {
+                console.log(data);
+                $("#tab").empty();
+                var d = "<div class='chart' id='generado'></div>";
+                $("#tab").append(d);
+               var divg = $("#generado");
+               var chart = document.createElement("canvas");
+               alert("stop");
+                chart.id="graficoTemperatura";
+                chart.style="height:250px";
+                $("#generado").append(chart);
+              var fecha = [];
+              var lectura = [];
+              var lectura2 = [];
+
+              for(var i in data) {
+                fecha.push(data[i].fecha);
+                lectura.push(data[i].lectura);
+              }
+
+              var chartdata = {
+                labels: fecha,
+                datasets : [
+                  {
+                    label: valor,
+                    borderColor: '#302f2e',
+                    fill: false,
+                    data: lectura
+                  }]
+              };
+
+              var ctx = $("#graficoTemperatura");
+
+              var line = new Chart(ctx, {
+                type: 'line',
+                data: chartdata,
+              });
+               ir();
+            },
+            error: function(data) {
+              console.log(data);
+              }
+            });*/
         }
         function ir()
         {
@@ -260,7 +396,7 @@
         function generargrafico(valor)
         {
 
-                       $.ajax({
+                      $.ajax({
                      url: "core/models/ultimos.php",
                     method: "POST",
                     data:{"sensor":valor},
@@ -271,7 +407,7 @@
                     $("#tab").append(d);
                    var divg = $("#generado");
                    var chart = document.createElement("canvas");
-                   alert("stop");
+
                     chart.id="graficoTemperatura";
                     chart.style="height:250px";
                     $("#generado").append(chart);

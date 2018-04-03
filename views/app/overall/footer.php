@@ -5,7 +5,7 @@
       Departamentos Computación - Química
     </div>
     <!-- Default to the left -->
-    <strong><?php echo APP_COPY; ?></strong> 
+    <strong><?php echo APP_COPY; ?></strong>
   </footer>
 
   <!-- Control Sidebar -->
@@ -18,7 +18,7 @@
     <!-- Tab panes -->
     <div class="tab-content">
       <!-- Home tab content -->
-     
+
       <!-- /.tab-pane -->
       <!-- Stats tab content -->
       <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
@@ -28,7 +28,7 @@
         <form method="post">
           <h3 class="control-sidebar-heading">General Settings</h3>
 
-        
+
           <!-- /.form-group -->
         </form>
       </div>
@@ -46,7 +46,7 @@
 <!-- jQuery 3 -->
 
 <!-- Bootstrap 3.3.7 -->
-<script src="extlibs/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="extlibs/admin/dist/js/adminlte.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>

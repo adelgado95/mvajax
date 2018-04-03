@@ -11,7 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title><?php echo APP_TITLE; ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="extlibs/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="extlibs/admin/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -37,10 +37,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="extlibs/admin/bower_components/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="views/app/css/datatables.net-bs/dataTables.bootstrap.min.css">
 
-  <link rel="stylesheet" href="views/app/css/bootstrap-daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.27/daterangepicker.min.css">
   <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="views/app/css/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link type="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css"/>
   <link rel="stylesheet" href="views/app/css/iCheck/all.css">
+  <link rel="stylesheet" href="views/app/js/wickedpicker/wickedpicker.min.css">
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -55,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
         <script src="views/app/js/generales.js"></script>
-        <script src="extlibs/admin/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <link rel="shortcut icon" href="views/app/images/termo.ico" type="image/x-icon">
     <link rel="icon" href="views/app/images/termo.ico" type="image/x-icon">
