@@ -13,12 +13,62 @@ define('DB_NAME','estacion_monitoreo');
 //get connection
 $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-
+$pinter = $_POST['intervalos'];
+$inter = explode(',',$pinter);
+$consulta = "SELECT Id_lectura,fecha,";
 if(!$mysqli){
 	die("Connection failed: " . $mysqli->error);
 }
-$sensor ="";
-$limit="";
+
+$sensores = $_POST['sensor'];
+$asensores = explode(',',$sensores);
+$arrlength = count($asensores);
+if(strcmp($inter[0],"normales") == 0)
+$consulta.=$sensores;
+
+if(strcmp($inter[0],"cahora") == 0)
+{
+
+	for($x = 0; $x < $arrlength; $x++) {
+    $consulta.="ROUND(AVG(".$asensores[$x].")) as ".$asensores[$x];
+		if($x!=($arrlength-1))
+		{
+			$consulta.=",";
+		}
+	}
+}
+$consulta.=" FROM lectura WHERE ";
+$pdias = $_POST['dias'];
+$dias = explode(',',$pdias);
+$phoras = $_POST['horas'];
+$horas = explode(',',$phoras);
+
+
+
+if(strcmp($dias[0],"dia") == 0)
+{
+		$consulta.="DATE(fecha)='".$dias[1]."' ";
+}
+if(strcmp($dias[0],"dias")==0)
+{
+			$consulta.="(DATE(fecha) BETWEEN '".$dias[1]."' AND '".$dias[2]."') ";
+}
+if(strcmp($horas[0],"hora")==0)
+{
+		$consulta.="AND TIME(fecha)='".$horas[1]."' ";
+}
+if(strcmp($horas[0],"horas")==0)
+{
+		$consulta.="AND (TIME(fecha) BETWEEN '".$horas[1]."' AND '".$horas[2]."') ";
+}
+if(strcmp($inter[0],"cahora") == 0)
+{
+		$consulta.="GROUP BY HOUR(TIME(fecha)) ";
+}
+$consulta.="ORDER BY fecha DESC;";
+/*
+// La funcion explode convertira la cadena a arreglo
+$tok = explode(',',$ss); $limit="";
 if(isset($_POST['sensor']))
 {
   $sensor = $_POST['sensor'];
@@ -35,8 +85,10 @@ else
 {
 	$limit = 10;
 }//query to get data from the table
+*/
 
-$query = sprintf("SELECT Id_lectura as numero ,".$sensor." as lectura,TIME(fecha) as fecha FROM lectura order by fecha desc limit ".$limit.";");
+$query = $consulta;
+
 
 //execute query
 $result = $mysqli->query($query);
@@ -52,7 +104,11 @@ $result->close();
 
 //close connection
 $mysqli->close();
-
+if(count($data) == 0)
+print json_encode("NA");
+else {
+	print json_encode($data);
+}
 //now print the data
-print json_encode($data);
+
 ?>
