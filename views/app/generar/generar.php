@@ -342,7 +342,7 @@
              }
               if($('#tipoSelect :selected').text() == "PDF")
              {
-                mgenerarPDF(select);
+                mgenerarPDF(parametros,select);
              }
              if($('#tipoSelect :selected').text() == "TABLA")
              {
@@ -355,6 +355,112 @@
               alert(select[sensor]);
               console.log(select[sensor]);
            }*/
+
+        }
+        function mgenerarPDF(parametros,sensores)
+        {
+          $.ajax({
+         url: "core/models/servicegenerar.php",
+        method: "POST",
+        data:{
+          "sensor":parametros[0],
+          "dias":parametros[1],
+          "horas":parametros[2],
+          "intervalos":parametros[3]
+        },
+       success: function(data) {
+        console.log(data);
+        if(data=="NA")
+        {
+          $("#tab").empty();
+            var d = "<div class='chart' id='generado'></div>";
+            $("#tab").append(d);
+           var divg = $("#generado");
+          var newContent = document.createTextNode("Lo sentimos no hay datos");
+              $("#generado").append(newContent);
+              ir();
+        }
+        else {
+
+
+    /*      var fecha = [];
+          var lectura = [];
+          var a = Array();
+
+          for(var i in data) {
+            a.push([[data[i].numero],[data[i].fecha],[data[i].lectura]]);
+          }
+         var columns = ["NUMERO","FECHA","LECTURA"];
+         var datas =[[1,"2017-12-12",980],[1,"2017-12-12",980],[1,"2017-12-12",980]];
+
+              var doc = new jsPDF();
+              console.log("Este el el arrregloa");
+              console.log(a);
+              console.log("Este el el arrreglo datas");
+              console.log(datas);
+
+           doc.autoTable(columns, a);
+
+            var string = doc.output('datauristring');
+            doc.save();*/
+          console.log(data);
+          var t = $("#tab");
+         $("#tab").empty();
+         var datost = new Array();
+          var columns = ["NUMERO","FECHA"];
+          var i;
+         for ( i=0;i < sensores.length; i++) {
+            columns.push(sensores[i]);
+        }
+        $.each(data,function(i){
+          var temp = new Array();
+          var arreglo = $.map(data[i], function(el) { return el });
+          for ( j=0;j < sensores.length; j++) {
+             temp.push(arreglo[j]);
+         }
+         datost.push(arreglo);
+        });
+        var doc = new jsPDF();
+        console.log("Este el el arrreglo datas");
+        console.log(datost);
+        doc.autoTable(columns, datost);
+        var string = doc.output('datauristring');
+        doc.save();
+        ir();
+
+        }
+
+/*
+      for(var i in data) {
+        fecha.push(data[i].fecha);
+        lectura.push(data[i].lectura);
+      }
+
+      var chartdata = {
+        labels: fecha,
+        datasets : [
+          {
+            label: valor,
+            borderColor: '#302f2e',
+            fill: false,
+            data: lectura
+          }]
+      };
+
+      var ctx = $("#graficoTemperatura");
+
+      var line = new Chart(ctx, {
+        type: 'line',
+        data: chartdata,
+      });
+       ir();
+    },*/
+        },
+          error: function(data) {
+            console.log(data);
+            datos="NA";
+            }
+          });
 
         }
         function mgenerargrafico(parametros,sensores)
@@ -377,20 +483,41 @@
                   "intervalos":parametros[3]
                 },
                success: function(data) {
-                console.log(data);
-                datos=data;
-                console.log("datos"+datos);
-                var lecturas = Array();
-                lecturas.push({"label":"Valor:",
-                  "borderColor":colores[0],
-                  "fill": false,
-                  "data": [1,2,3,4]
+                 if(data=="NA")
+                 {
+                   $("#tab").empty();
+                     var d = "<div class='chart' id='generado'></div>";
+                     $("#tab").append(d);
+                    var divg = $("#generado");
+                   var newContent = document.createTextNode("Lo sentimos no hay datos");
+                       $("#generado").append(newContent);
+                       ir();
+                 }
+                 else{
+                var fechas = new Array();
+                var vlecturas = new Array();
+                var lecturas = new Array();
+                for ( j=0;j < sensores.length; j++) {
+                   vlecturas[j] = new Array();
+               }
+                $.each(data,function(i){
+                  var j;
+                  var label = sensores[i];
+                  fechas.push(data[i].fecha);
+                  var arreglo = $.map(data[i], function(el) { return el });
+                  for ( j=0;j < sensores.length; j++) {
+                     vlecturas[j].push(arreglo[j+2]);
+                 }
                 });
-                lecturas.push({"label":"Valor",
-                  "borderColor":colores[1],
-                  "fill": false,
-                  "data": [4,5,6,7]
-                });
+                console.log("Miremos las lecturas del primer sensor");
+                console.log(vlecturas[0]);
+                for ( j=0;j < sensores.length; j++) {
+                  lecturas.push({"label":sensores[j],
+                    "borderColor":colores[j],
+                    "fill": false,
+                    "data": vlecturas[j]
+                  });
+                }
 
               $("#tab").empty();
                 var d = "<div class='chart' id='generado'></div>";
@@ -398,24 +525,78 @@
                var divg = $("#generado");
                var chart = document.createElement("canvas");
                 chart.id="graficogenerado";
-                chart.style="height:250px";
+                chart.style="height:250px";-
                 $("#generado").append(chart);
               var fecha = [];
               console.log("Log lecturas");
               console.log(lecturas);
               var lectura2 = [];
               var chartdata = {
-                labels: ["Uno","Dos","Tres","Catro"],
+                labels: fechas,
                 datasets : lecturas
               };
 
               var ctx = $("#graficogenerado");
+              if($('#r1').is(':checked'))
+              {
+                var line = new Chart(ctx, {
+                  type: 'line',
+                  data: chartdata,
+                  options:{
+                      scales:{
+                        xAxes:[{
+                          type:'time',
+                          unit:'day'
+                        }],
+                        yAxes:[
+                          {
+                              ticks: {
+                             suggestedMin: 0
+                           },
+          						        scaleLabel: {
+                							display: true,
+                							labelString: 'value',
 
-              var line = new Chart(ctx, {
-                type: 'line',
-                data: chartdata,
-              });
+                						}
+                					}
+                        ]
+                      }
+                  }
+                });
+              }
+              else {
+                var line = new Chart(ctx, {
+                  type: 'line',
+                  data: chartdata,
+                  options:{
+                      scales:{
+                        xAxes:[{
+                          type:'time',
+                          time:{
+                            format:'YYYY-MM-DD HH:mm',
+                            tooltipFormat:'ll HH:mm'
+                          }
+                        }],
+                        yAxes:[
+                          {
+                              ticks: {
+                             suggestedMin: 0
+                           },
+          						        scaleLabel: {
+                							display: true,
+                							labelString: 'value',
+
+                						}
+                					}
+                        ]
+                      }
+                  }
+                });
+
+              }
+
                ir();
+               }
             },
                   error: function(data) {
                     console.log(data);
@@ -426,9 +607,6 @@
         }
         function mgenerarTabla(parametros,sensores)
         {
-
-
-
                     $.ajax({
                    url: "core/models/servicegenerar.php",
                   method: "POST",
@@ -589,7 +767,7 @@
        data:{"sensor":valor},
       success: function(data) {
 
-      var fecha = [];
+/*      var fecha = [];
       var lectura = [];
       var a = Array();
 
@@ -608,7 +786,7 @@
        doc.autoTable(columns, a);
 
         var string = doc.output('datauristring');
-        doc.save();
+        doc.save();*/
                   }
 
        })

@@ -128,9 +128,11 @@
     data:{"sensor":"sensorDx"},
     success: function(data) {
       console.log(data);
+      var timeformat="YYYY-MM-DD HH:MM";
       var fecha = [];
       var lectura = [];
       var lectura2 = [];
+      var tiempos = new Array();
 
       for(var i in data) {
         fecha.push(data[i].fecha);
@@ -153,8 +155,34 @@
       var line = new Chart(ctx, {
         type: 'line',
         data: chartdata,
+        options:{
+            scales:{
+              xAxes:[{
+                type:'time',
+                time:{/*
+                  format:'YYYY-MM-DD HH:mm',
+                  tooltipFormat:'ll HH:mm'*/
+                  unit:'day',
+                  distribution:'linear'
+                }
+              }],
+              yAxes:[
+                {
+                    ticks: {
+                   suggestedMin: 0
+                 },
+						        scaleLabel: {
+      							display: true,
+      							labelString: 'value',
 
-      });
+      						}
+      					}
+              ]
+            }
+        }
+      }
+
+      );
     },
     error: function(data) {
       console.log(data);
@@ -192,6 +220,29 @@
       var line = new Chart(ctx, {
         type: 'line',
         data: chartdata,
+        options:{
+            scales:{
+              xAxes:[{
+                type:'time',
+                time:{
+                  format:'YYYY-MM-DD HH:mm',
+                  tooltipFormat:'ll HH:mm'
+                }
+              }],
+              yAxes:[
+                {
+                    ticks: {
+                   suggestedMin: 0
+                 },
+						        scaleLabel: {
+      							display: true,
+      							labelString: 'value',
+
+      						}
+      					}
+              ]
+            }
+        }
 
       });
     },
