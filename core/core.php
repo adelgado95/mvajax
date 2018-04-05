@@ -11,7 +11,7 @@ define('DB_NAME', 'estacion_monitoreo');
 define('HTML_DIR','views/app/');
 define('APP_TITLE','Aire_Admin');
 define('APP_COPY','Copyright &copy'.date('Y',time()).'UNAN-LEON');
-define('APP_URL','http://localhost/mvajax/');
+define('APP_URL','http://comp.unanleon.edu.ni/estacion/');
 #estructura
 require('core/models/class.Conexion.php');
 require('core/bin/functions/encrypt.php');

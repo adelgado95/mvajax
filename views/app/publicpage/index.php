@@ -169,27 +169,29 @@
 
         <div class="row services-list block-1-2 block-tab-full">
 
+          <div class="col-block service-item" data-aos="fade-up">
+              <div class="service-icon">
+                <img src="views/app/publicpage/images/f.ico" width="48px" height="48px">
+              </div>
+              <div class="service-text">
+                  <h3 class="h2" id="T">Temperatura:  C &deg </h3>
+                  <p>León por ser un departamento ubicado en el pacífico por lo general mantiene una temperatura mayor en comparación a la parte central y atlántica del país, durante la estación de verano la temperatura puede alcanzar hasta los 38°C.
+                  </p>
+              </div>
+          </div>
+
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon">
                   <img src="views/app/publicpage/images/iconon.png" width="48px" height="48px">
                 </div>
                 <div class="service-text">
-                    <h3 class="h2" id="OxN">Óxido de Nitrógeno :  ppm</h3>
-                    <p>El óxido de nitrógeno esta relacionado con afecciones del sistema nervioso Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam assumenda eius voluptatem, ut vitae molestiae minus id nihil voluptates ad rem fugit dolore qui placeat itaque, officia fugiat obcaecati expedita.
+                    <h3 class="h2" id="OxN">Humedad :  %</h3>
+                    <p>Es la cantidad de vapor de agua presente en el aire. La humedad del aire es un factor que se relaciona con la comodidad térmica del cuerpo vivo que se mueve en determinado ambiente. Sirve para evaluar la capacidad del aire para evaporar la humedad de la piel, debida fundamentalmente a la transpiración. También es importante, tanto la del aire como la de la tierra, para el desarrollo de las plantas.
                     </p>
                 </div>
             </div>
 
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon">
-                  <img src="views/app/publicpage/images/f.ico" width="48px" height="48px">
-                </div>
-                <div class="service-text">
-                    <h3 class="h2" id="T">Temperatura:  C &deg </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam suscipit, eius impedit id deleniti asperiores aut non in ad recusandae doloribus sapiente quibusdam nemo, autem aliquid reiciendis. Reprehenderit, quibusdam, sequi!
-                    </p>
-                </div>
-            </div>
+
 
             <div class="col-block service-item" data-aos="fade-up">
               <div class="service-icon">
@@ -197,7 +199,12 @@
               </div>
                 <div class="service-text">
                     <h3 class="h2" id="Oz">Ozono: ppm</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa alias, non earum dolores perspiciatis dolorum quasi aspernatur nobis sed, ut assumenda quaerat sunt, laborum iste ullam, aut. Repellat, inventore, commodi.
+                    <p>El ozono es un gas azulado compuesto por tres átomos de oxígeno, como gas tóxico a concentraciones elevadas puede tener efectos en la salud, afectando el aparato respiratorio e irritando las mucosas dependiendo también del nivel de concentración
+                      Según la OMS los primeros síntomas que se han detectado tras una exposición de este contaminante es:
+                      Falta de aire y dolor al aspirar profundamente.
+                      Tos e irritación en la garganta
+                      Inflamación y daño en las vías respiratorias, incremento de asma
+
                     </p>
                 </div>
             </div>
@@ -207,21 +214,9 @@
                     <img src="views/app/publicpage/images/iconoc.png" width="48px" height="48px">
                 </div>
                 <div class="service-text">
-                    <h3 class="h2" id="Dx">Dióxido de Carbono: ppm</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi maiores fugit consequatur a possimus quis perferendis beatae mollitia illo laborum illum ad necessitatibus blanditiis, earum vitae porro, molestias sequi rem.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon">
-                    <img src="views/app/publicpage/images/iconop10.png" width="48px" height="48px">
-                </div>
-                <div class="service-text">
-                    <h3 class="h2" id="Pm">Polvo 2.5pm:  ppm</h3>
-                    <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.
-                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
-                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+                    <h3 class="h2" id="Dx">Monóxido de Carbono: ppm</h3>
+                    <p>Este un gas sin olor ni color, pero muy peligroso. El CO se encuentra en el humo de la combustión, como lo es el expulsado por automóviles y camiones, o candelabros y estufas.
+                      Este gas puede ocasionar desde daños leves como somnolencia, mareos, desvanecimientos, dolores de cabeza, así mismo puede ocasionar daños graves como alucinaciones, convulsiones, y disminución de oxígeno en las células.
                     </p>
                 </div>
             </div>
@@ -229,11 +224,25 @@
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon"><i class="icon-lego-block"></i></div>
                 <div class="service-text">
-                    <h3 class="h2" id="OA">Óxido de Azufre: 34ppm</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quas alias ipsa quae sit saepe est nulla repudiandae natus, quod cumque laudantium dolor sed, illum. Quidem officia eveniet quam. Labore.
+                    <h3 class="h2" id="OA">PM10     :ppm</h3>
+                    <p>Las PM son partículas sólidas o líquidas de polvo, cenizas, hollín, partículas metálicas, cemento o polen, dispersas en la atmósfera, y cuyo diámetro varía entre 2,5 y 10 µm.
+                      Estas partículas están asociados a daños en el sistema circulatorio, así como daños en los pulmones. También se tienen registros donde las partículas se han alojado en el cerebro causando pérdida de memoria, entre otros daños.
                     </p>
                 </div>
             </div>
+
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <img src="views/app/publicpage/images/iconop10.png" width="48px" height="48px">
+                </div>
+                <div class="service-text">
+                    <h3 class="h2" id="Pm">Polvo 2.5pm:  ppm</h3>
+                    <p>Mientras las PM10 pueden penetrar hasta las vías respiratorias, las PM2.5 pueden penetrar hasta la zona de intercambio de gases de pulmón y las partículas ultra finas (menores de 100nm, pueden llegar a pasar por el torrente circulatorio).
+                    </p>
+                </div>
+            </div>
+
 
         </div> <!-- end services-list -->
 
@@ -252,7 +261,7 @@
                <h1 class="display-2">Personal</h1>
            </div>
        </div> <!-- end section-header -->
-       <div class="row services-list block-2-2 block-tab-full">
+       <!--<div class="row services-list block-2-2 block-tab-full">
          <div class="col-block service-item" data-aos="fade-up">
              <div class="service-icon" style="text-align:center">
                  <img src="views/app/images/1.jpg" style="border-radius: 50%;" width="100px" height="100px">
@@ -301,6 +310,7 @@
 
                   </div>
                </div>
+               -->
 
        </div> <!-- end services-list -->
 
@@ -328,9 +338,10 @@
             $("#hactual").text(data[0].fecha);
             $("#T").text("Temperatura: "+data[0].sensorT+" C");
               $("#Oz").text("Ozono: "+data[0].sensorOz+"ppm");
-              $("#Dx").text("Dióxido de Carbono: "+data[0].sensorDx+" ppm");
+              $("#Dx").text("Monóxido de Carbono: "+data[0].sensorDx+" ppm");
               $("#Pm").text("Polvo 2.5pm: "+data[0].sensorPm+" ppm");
             console.log("Cambio");
+            console.log(data);
           }
 
         },
@@ -338,7 +349,7 @@
           console.log(data);
         }
         });
-          }, 1000);
+      }, 1000);
     </script>
 
 </body>
