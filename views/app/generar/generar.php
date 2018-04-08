@@ -290,8 +290,9 @@
               var time = $("#tp").val();
               time=time.replace(" ","");
                   time=time.replace(" ","");
+              var hora = time.substr(0,2);
               time+=":00";
-              array[2]="hora,"+time+",NA";
+              array[2]="hora,"+hora+",NA";
               console.log(array[2]);
             }
             if($('#rh3').is(':checked'))

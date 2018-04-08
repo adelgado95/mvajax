@@ -19,7 +19,7 @@ if(!$mysqli){
 }
 //query to get data from the table
 
-$query = 'SELECT Id_lectura as numero ,sensorT,sensorDx,sensorPm,sensorOz,DATE_FORMAT(fecha,"%d-%m-%Y %h:%i:%s") as fecha FROM lectura order by Id_lectura desc limit 1';
+$query = 'SELECT Id_lectura as numero ,sensorT,sensorDx,sensorPm,sensorOz,sensorPm1,sensorH,DATE_FORMAT(fecha,"%d-%m-%Y %h:%i:%s") as fecha FROM lectura order by Id_lectura desc limit 1';
 
 //execute query
 $result = $mysqli->query($query);

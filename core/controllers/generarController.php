@@ -41,8 +41,8 @@
   </div>
   <!-- /.content-wrapper -->
 
-  
 
-<?php  
+
+<?php
 include(HTML_DIR.'overall/footer.php');
 ?>

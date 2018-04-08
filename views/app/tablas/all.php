@@ -128,7 +128,7 @@
 			   }
 			})
       		var dt = {"sensor":"sensorOz","limit":"5"}
-			$.ajax({
+			         $.ajax({
 					  			 type    : "POST",
 					   			url     : "core/models/ultimos.php",
 					   			dataType: "json",

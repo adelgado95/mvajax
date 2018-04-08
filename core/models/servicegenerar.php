@@ -15,7 +15,7 @@ $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 $pinter = $_POST['intervalos'];
 $inter = explode(',',$pinter);
-$consulta = "SELECT Id_lectura,fecha,";
+$consulta = "SELECT Id_lectura,";
 if(!$mysqli){
 	die("Connection failed: " . $mysqli->error);
 }
@@ -24,11 +24,11 @@ $sensores = $_POST['sensor'];
 $asensores = explode(',',$sensores);
 $arrlength = count($asensores);
 if(strcmp($inter[0],"normales") == 0)
-$consulta.=$sensores;
+$consulta.="fecha,".$sensores;
 
 if(strcmp($inter[0],"cahora") == 0)
 {
-
+$consulta.="(DATE_FORMAT(fecha,'%Y-%m-%d %H:00:00')) as fecha,";
 	for($x = 0; $x < $arrlength; $x++) {
     $consulta.="ROUND(AVG(".$asensores[$x].")) as ".$asensores[$x];
 		if($x!=($arrlength-1))
@@ -55,7 +55,7 @@ if(strcmp($dias[0],"dias")==0)
 }
 if(strcmp($horas[0],"hora")==0)
 {
-		$consulta.="AND TIME(fecha)='".$horas[1]."' ";
+		$consulta.="AND HOUR(fecha)='".$horas[1]."' ";
 }
 if(strcmp($horas[0],"horas")==0)
 {

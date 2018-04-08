@@ -8,14 +8,15 @@ if(!empty($_POST['user']) and !empty($_POST['pass']))
 	if($db->rows($sql)>0){
 		$_SESSION['app_id'] = $db->recorrer($sql)[0];
 		if($_POST['session'])
-			{ini_set('session.cookie.lifetime', time() + (60*60*24));
+			{
+				ini_set('session.cookie.lifetime', time() + (60*60*24));
 				echo 1;
 		}
 
 	}
 	else
 	{
-		echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">x</button><h4>Error</h4><p><strong>Las credenciales son incorrectas'.$pass.'</strong></p></div>';
+		echo $pass;
 	}
 	$db->liberar($sql);
 	$db->close();
@@ -23,6 +24,6 @@ if(!empty($_POST['user']) and !empty($_POST['pass']))
 }
 else
 {
-	echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">x</button><h4>Error</h4><p><strong>Todos los datos deben estar llenos</strong></p></div>';
+	echo -1;
 }
 ?>

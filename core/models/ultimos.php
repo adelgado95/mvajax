@@ -5,15 +5,12 @@ header('Content-Type: application/json');
 
 //database
 //get connection
-define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME','estacion_monitoreo');
-
 //get connection
-$mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'estacion_monitoreo');
+$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 if(!$mysqli){
 	die("Connection failed: " . $mysqli->error);
 }
@@ -36,21 +33,22 @@ else
 	$limit = 10;
 }//query to get data from the table
 
-$query = sprintf("SELECT Id_lectura as numero ,".$sensor." as lectura,fecha as fecha FROM lectura order by Id_lectura desc ");
+$query = sprintf("SELECT Id_lectura as numero ,".$sensor." as lectura,fecha as fecha FROM lectura order by Id_lectura desc limit 6;");
 
 //execute query
-$result = $mysqli->query($query);
+$resulta = $mysqli->query($query);
 
 //loop through the returned data
 $data = array();
-foreach ($result as $row) {
+foreach ($resulta as $row) {
 	$data[] = $row;
 }
 
 //free memory associated with result
-$result->close();
+$resulta->close();
 
 //close connection
+
 $mysqli->close();
 
 //now print the data

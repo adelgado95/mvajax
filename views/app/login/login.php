@@ -60,11 +60,11 @@
             success: function(data) {
               if(data == 1){
                   $("#_AJAX_LOGIN_").empty();
-              result = '<div class="alert alert-dismissible alert-success">';
-              result += '<button type="button" class="close" data-dismiss="alert">x</button>';
-              result += '<h4>Conectado!</h4>';
-              result += '<p><strong>Estamos redireccionando</strong></p>';
-              result += '</div>';
+                result = '<div class="alert alert-dismissible alert-success">';
+                result += '<button type="button" class="close" data-dismiss="alert">x</button>';
+                result += '<h4>Conectado!</h4>';
+                result += '<p><strong>Estamos redireccionando</strong></p>';
+                result += '</div>';
               $("#_AJAX_LOGIN_").append(result);
                 window.location.href = "index.php?view=admin";
                 console.log("Redireciconando a admin");
@@ -85,7 +85,6 @@
               result += '<p><strong>Estamos intentando</strong></p>';
               result += '</div>';
               $("#_AJAX_LOGIN_").append(result);
-
             }
             });
         }

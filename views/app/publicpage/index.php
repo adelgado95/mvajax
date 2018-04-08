@@ -58,7 +58,7 @@
     <header class="s-header">
 
         <div class="header-logo">
-            <a class="site-logo" href="index.html">
+            <a class="site-logo" href="index.php">
                 <img src="views/app/images/logo.png" alt="Homepage">
             </a>
         </div>
@@ -185,8 +185,8 @@
                   <img src="views/app/publicpage/images/iconon.png" width="48px" height="48px">
                 </div>
                 <div class="service-text">
-                    <h3 class="h2" id="OxN">Humedad :  %</h3>
-                    <p>Es la cantidad de vapor de agua presente en el aire. La humedad del aire es un factor que se relaciona con la comodidad térmica del cuerpo vivo que se mueve en determinado ambiente. Sirve para evaluar la capacidad del aire para evaporar la humedad de la piel, debida fundamentalmente a la transpiración. También es importante, tanto la del aire como la de la tierra, para el desarrollo de las plantas.
+                    <h3 class="h2" id="H">Humedad :  %</h3>
+                    <p>Es la cantidad de vapor de agua presente en el aire. La humedad del aire es un factor que se relaciona con la comodidad térmica del cuerpo vivo que se mueve en determinado ambiente.
                     </p>
                 </div>
             </div>
@@ -200,10 +200,7 @@
                 <div class="service-text">
                     <h3 class="h2" id="Oz">Ozono: ppm</h3>
                     <p>El ozono es un gas azulado compuesto por tres átomos de oxígeno, como gas tóxico a concentraciones elevadas puede tener efectos en la salud, afectando el aparato respiratorio e irritando las mucosas dependiendo también del nivel de concentración
-                      Según la OMS los primeros síntomas que se han detectado tras una exposición de este contaminante es:
-                      Falta de aire y dolor al aspirar profundamente.
-                      Tos e irritación en la garganta
-                      Inflamación y daño en las vías respiratorias, incremento de asma
+
 
                     </p>
                 </div>
@@ -211,22 +208,23 @@
 
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon">
-                    <img src="views/app/publicpage/images/iconoc.png" width="48px" height="48px">
+                      <img src="views/app/publicpage/images/m.ico" width="48px" height="48px">
                 </div>
                 <div class="service-text">
                     <h3 class="h2" id="Dx">Monóxido de Carbono: ppm</h3>
                     <p>Este un gas sin olor ni color, pero muy peligroso. El CO se encuentra en el humo de la combustión, como lo es el expulsado por automóviles y camiones, o candelabros y estufas.
-                      Este gas puede ocasionar desde daños leves como somnolencia, mareos, desvanecimientos, dolores de cabeza, así mismo puede ocasionar daños graves como alucinaciones, convulsiones, y disminución de oxígeno en las células.
-                    </p>
+
                 </div>
             </div>
 
             <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon"><i class="icon-lego-block"></i></div>
+                <div class="service-icon">
+                    <img src="views/app/images/round.ico" width="48px" height="48px">
+                </div>
                 <div class="service-text">
-                    <h3 class="h2" id="OA">PM10     :ppm</h3>
+                    <h3 class="h2" id="Pm10">PM10     :ppm</h3>
                     <p>Las PM son partículas sólidas o líquidas de polvo, cenizas, hollín, partículas metálicas, cemento o polen, dispersas en la atmósfera, y cuyo diámetro varía entre 2,5 y 10 µm.
-                      Estas partículas están asociados a daños en el sistema circulatorio, así como daños en los pulmones. También se tienen registros donde las partículas se han alojado en el cerebro causando pérdida de memoria, entre otros daños.
+                      Estas partículas están asociados a daños en el sistema circulatorio, así como daños en los pulmones.
                     </p>
                 </div>
             </div>
@@ -253,14 +251,8 @@
         </section>
 
 
-        <section id="clients" class="s-clients">
 
-       <div class="row section-header" data-aos="fade-up">
-           <div class="col-full">
-               <h3 class="subhead">Work Team</h3>
-               <h1 class="display-2">Personal</h1>
-           </div>
-       </div> <!-- end section-header -->
+     <!-- end section-header -->
        <!--<div class="row services-list block-2-2 block-tab-full">
          <div class="col-block service-item" data-aos="fade-up">
              <div class="service-icon" style="text-align:center">
@@ -313,6 +305,7 @@
                -->
 
        </div> <!-- end services-list -->
+       <!-- end footer-bottom -->
 
    </section> <!-- end s-clients -->
 
@@ -340,6 +333,9 @@
               $("#Oz").text("Ozono: "+data[0].sensorOz+"ppm");
               $("#Dx").text("Monóxido de Carbono: "+data[0].sensorDx+" ppm");
               $("#Pm").text("Polvo 2.5pm: "+data[0].sensorPm+" ppm");
+              $("#H").text("Humedad: "+data[0].sensorH+"%");
+              $("#Pm10").text("Polvo 10pm: "+data[0].sensorPm+" ppm");
+
             console.log("Cambio");
             console.log(data);
           }
@@ -352,6 +348,86 @@
       }, 1000);
     </script>
 
+    <footer>
+      <div class="row section-header">
+              <div class="col-full">
+
+                  <h1 class="display-2 display-2--light">Equipo</h1>
+              </div>
+          </div>
+          <div class="col-full" >
+
+                                <div class="col-six">
+                                  <img src="views/app/images/3.jpg"
+                                      srcset="views/app/images/3.jpg 1000w,
+                                      views/app/images/3.jpg 500w"
+                                      sizes="(max-width: 300px) 100vw, 300px" alt="">
+                                    <h4>Msc. Arnoldo Contreras<br>Coordinador</h4>
+
+                                </div>
+                                <div class="col-six">
+                                  <img src="views/app/images/4.jpg"
+                                      srcset="views/app/images/4.jpg 1000w,
+                                      views/app/images/4.jpg 500w"
+                                      sizes="(max-width: 300px) 100vw, 300px" alt="">
+                                    <h4>Msc. Jorge Cisne<br>Coordinador</h4>
+
+                                </div>
+          </div>
+            <div class="col-full">
+
+              <div class="col-four">
+                <img src="views/app/images/1.jpg"
+                    srcset="views/app/images/1.jpg 1000w,
+                    views/app/images/1.jpg 500w"
+                    sizes="(max-width: 300px) 100vw, 300px" alt="">
+                  <h4>Alfonso Delgado <br> Desarrollador</h4>
+
+
+              </div>
+              <div class="col-four">
+                <img src="views/app/images/2.jpg"
+                    srcset="views/app/images/2.jpg 1000w,
+                    views/app/images/2.jpg 500w"
+                    sizes="(max-width: 300px) 100vw, 300px" alt="">
+                  <h4>Henry Canales <br>Desarrollador </h4>
+
+
+              </div>
+
+                <div class="col-four">
+                  <img src="views/app/images/11.jpg"
+                      srcset="views/app/images/11.jpg 1000w,
+                      views/app/images/11.jpg 500w"
+                      sizes="(max-width: 300px) 100vw, 300px" alt="">
+                    <h4>Ana Maritza <br>Desarrolador</h4>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+            </div> <!-- end footer-main -->
+
+            <div class="row footer-bottom">
+
+                <div class="col-twelve">
+                    <div class="copyright">
+                    </div>
+
+                    <div class="go-top">
+                        <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+            </div> <!-- end footer-bottom -->
+
+        </footer> <!-- end footer -->
 </body>
 
 </html>
