@@ -38,7 +38,8 @@
                  <input type="checkbox" class="minimal" value="sensorOz" id="c2"> Sensor Ozono </br>
                  <input type="checkbox" class="minimal" value="sensorPm" id="c3"> Sensor PM 2.5 </br>
                  <input type="checkbox" class="minimal" value="sensorDx" id="c4"> Sensor Dióxido de Carbono </br>
-                 <input type="checkbox" class="minimal" value="sensorT" id="c5"> Sensor Nitrógeno </br>
+                  <input type="checkbox" class="minimal" value="sensorPm1" id="c6"> Sensor Pm 10 </br>
+                   <input type="checkbox" class="minimal" value="sensorH" id="c7"> Sensor Humedad </br>
 
              </div>
 
@@ -53,7 +54,7 @@
                </label>
                <input type="text" class="form-control" id="datepickerS">
              </div>
-               <button class="btn btn-default" onclick="Generar()">Generar</button>
+
 
 
 
@@ -104,6 +105,7 @@
             </div>
 
           </div>
+            <button class="btn btn-default" onclick="Generar()">Generar</button>
 
 
             </div>
@@ -427,6 +429,9 @@
         doc.autoTable(columns, datost);
         var string = doc.output('datauristring');
         doc.save();
+         var newContent = document.createTextNode("PDF Generado");
+                 $("#boxtitulo").empty();
+              $("#boxtitulo").append(newContent);
         ir();
 
         }
@@ -595,7 +600,9 @@
                 });
 
               }
-
+                  var newContent = document.createTextNode("Grafico Generado");
+                 $("#boxtitulo").empty();
+              $("#boxtitulo").append(newContent);
                ir();
                }
             },
@@ -665,6 +672,9 @@
                        'autoWidth'   : true,
                        "order": [[ 0, "desc" ]]
                          });
+                       var newContent = document.createTextNode("Tabla Generada");
+                 $("#boxtitulo").empty();
+              $("#boxtitulo").append(newContent);
                   ir();
 
                   }
@@ -709,122 +719,6 @@
             scrollTop: $("#tab").offset().top
                }, 2000);
         }
-        function generargrafico(valor)
-        {
 
-                      $.ajax({
-                     url: "core/models/ultimos.php",
-                    method: "POST",
-                    data:{"sensor":valor},
-                   success: function(data) {
-                    console.log(data);
-                    $("#tab").empty();
-                    var d = "<div class='chart' id='generado'></div>";
-                    $("#tab").append(d);
-                   var divg = $("#generado");
-                   var chart = document.createElement("canvas");
-
-                    chart.id="graficoTemperatura";
-                    chart.style="height:250px";
-                    $("#generado").append(chart);
-                  var fecha = [];
-                  var lectura = [];
-                  var lectura2 = [];
-
-                  for(var i in data) {
-                    fecha.push(data[i].fecha);
-                    lectura.push(data[i].lectura);
-                  }
-
-                  var chartdata = {
-                    labels: fecha,
-                    datasets : [
-                      {
-                        label: valor,
-                        borderColor: '#302f2e',
-                        fill: false,
-                        data: lectura
-                      }]
-                  };
-
-                  var ctx = $("#graficoTemperatura");
-
-                  var line = new Chart(ctx, {
-                    type: 'line',
-                    data: chartdata,
-                  });
-                   ir();
-                },
-                error: function(data) {
-                  console.log(data);
-                  }
-                });
-         }
-         function GenerarPDF(valor)
-         {
-            $.ajax({
-       url: "core/models/ultimos.php",
-       method: "POST",
-       data:{"sensor":valor},
-      success: function(data) {
-
-/*      var fecha = [];
-      var lectura = [];
-      var a = Array();
-
-      for(var i in data) {
-        a.push([[data[i].numero],[data[i].fecha],[data[i].lectura]]);
-      }
-     var columns = ["NUMERO","FECHA","LECTURA"];
-     var datas =[[1,"2017-12-12",980],[1,"2017-12-12",980],[1,"2017-12-12",980]];
-
-          var doc = new jsPDF();
-          console.log("Este el el arrregloa");
-          console.log(a);
-          console.log("Este el el arrreglo datas");
-          console.log(datas);
-
-       doc.autoTable(columns, a);
-
-        var string = doc.output('datauristring');
-        doc.save();*/
-                  }
-
-       })
-          }
-           function generarTabla(param)
-        {
-                       $.ajax({
-                     url: "core/models/ultimos.php",
-                    method: "POST",
-                    data:{"sensor":param},
-                   success: function(data) {
-                     console.log("Aqui estas en la tabla");
-                    console.log(data);
-                    var t =$("#tab");
-                    $('#tab').empty();
-                    t.empty();
-                    var tabla = "<table id='example1' class='table table-bordered table-striped'><thead>"+
-                    "<tr><th>Lectura No.</th><th>Valor</th><th>Fecha</th></tr></thead><tbody></tbody></table>";
-                    t.append(tabla);
-                    var table = $("#example1 tbody");
-                     $.each(data,function(i){
-                     table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
-                     });
-                      $('#example1').DataTable({
-                        'paging'      : true,
-                        'lengthChange': true,
-                        'searching'   : true,
-                        'ordering'    : true,
-                        'info'        : true,
-                        'autoWidth'   : true
-                          });
-                   ir();
-                },
-                error: function(data) {
-                  console.log(data);
-                  }
-                });
-         }
 
       </script>

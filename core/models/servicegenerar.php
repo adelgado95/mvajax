@@ -63,7 +63,7 @@ if(strcmp($horas[0],"horas")==0)
 }
 if(strcmp($inter[0],"cahora") == 0)
 {
-		$consulta.="GROUP BY HOUR(TIME(fecha)) ";
+		$consulta.="GROUP BY DAY(DATE(fecha)),HOUR(TIME(fecha)) ";
 }
 $consulta.="ORDER BY fecha DESC;";
 /*
@@ -88,7 +88,6 @@ else
 */
 
 $query = $consulta;
-
 
 //execute query
 $result = $mysqli->query($query);
