@@ -203,32 +203,7 @@
 
       var line = new Chart(ctx, {
         type: 'line',
-        data: chartdata,
-        options:{
-            scales:{
-              xAxes:[{
-                type:'time',
-                time:{
-                  format:'YYYY-MM-DD HH:mm',
-                  tooltipFormat:'ll HH:mm'
-                }
-              }],
-              yAxes:[
-                {
-                    ticks: {
-                   suggestedMin: 0,
-                   suggestedMax:10
-                 },
-                    scaleLabel: {
-                    display: true,
-                    labelString: 'value',
-
-                  }
-                }
-              ]
-            }
-        }
-
+        data: chartdata
 
       });
     },
@@ -276,21 +251,13 @@
         data: chartdata,
         options:{
             scales:{
-              xAxes:[{
-                type:'time',
-                time:{
-                  format:'YYYY-MM-DD HH:mm',
-                  tooltipFormat:'ll HH:mm'
-                }
-              }],
+             
               yAxes:[
                 {
-                    ticks: {
-                   suggestedMin: 0
-                 },
+                   
                     scaleLabel: {
                     display: true,
-                    labelString: 'value',
+                    labelString: 'Lecturas',
 
                   }
                 }

@@ -5,8 +5,8 @@ header('Content-Type: application/json');
 
 //database
 define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_USERNAME','estacion');
+define('DB_PASSWORD','cm>%d;q@j%HeQE69');
 define('DB_NAME','estacion_monitoreo');
 
 //get connection

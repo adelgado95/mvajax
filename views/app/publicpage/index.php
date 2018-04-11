@@ -11,8 +11,9 @@
     ================================================== -->
     <meta charset="utf-8">
     <title>ESTACION</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Departamento Computación">
+    <meta name="author" content="UNAN-LEON">
+    <meta name="theme-color" content="#0b6f09" />
 
     <!-- mobile specific metas
     ================================================== -->
@@ -72,10 +73,10 @@
 
                 <ul class="header-nav__list">
                     <li class="current"><a class="smoothscroll"  href="#home" title="home">Inicio</a></li>
-                    <li><a class="smoothscroll"  href="#about" title="about">Mediciones</a></li>
-                    <li><a class="smoothscroll"  href="#services" title="services">Equipo</a></li>
-                    <li><a class="smoothscroll"  href="#works" title="works">Importancia</a></li>
-                    <li><a class="smoothscroll"  href="#clients" title="clients">Contacto</a></li>
+                    <li><a class="smoothscroll"  href="#mediciones" title="mediciones">Mediciones</a></li>
+                    <li><a class="smoothscroll"  href="#equipo" title="about">Equipo</a></li>
+                    <li><a  href="index.php?view=login" title="login">Iniciar sesión</a></li>
+                
 
                 </ul>
 
@@ -128,7 +129,7 @@
                     <h3>Universidad Nacional Autónoma de Nicaragua</h3><br>
                     <h3>UNAN-LEON</h3>
                 <div class="home-content__buttons">
-                    <a href="#about" class="smoothscroll btn btn--stroke">
+                    <a href="#mediciones" class="smoothscroll btn btn--stroke">
                         Ver Mediciones
                     </a>
                     <a class="btn btn--stroke" href="index.php?view=login">
@@ -139,7 +140,7 @@
             </div>
 
             <div class="home-content__scroll">
-                <a href="#about" class="scroll-link smoothscroll">
+                <a href="#mediciones" class="scroll-link smoothscroll">
                     <span>Bajar</span>
                 </a>
             </div>
@@ -158,7 +159,7 @@
 
     <!-- about
     ================================================== -->
-    <section id='about' class="s-services">
+    <section id="mediciones" class="s-services">
 
         <div class="row section-header has-bottom-sep" data-aos="fade-up">
             <div class="col-full">
@@ -334,7 +335,7 @@
               $("#Dx").text("Monóxido de Carbono: "+data[0].sensorDx+" ppm");
               $("#Pm").text("Polvo 2.5pm: "+data[0].sensorPm+" ppm");
               $("#H").text("Humedad: "+data[0].sensorH+"%");
-              $("#Pm10").text("Polvo 10pm: "+data[0].sensorPm+" ppm");
+              $("#Pm10").text("Polvo 10pm: "+data[0].sensorPm1+" ppm");
 
             console.log("Cambio");
             console.log(data);
@@ -349,7 +350,7 @@
     </script>
 
     <footer>
-      <div class="row section-header">
+      <div id="equipo" class="row section-header">
               <div class="col-full">
 
                   <h1 class="display-2 display-2--light">Equipo</h1>
@@ -361,7 +362,7 @@
                                   <img src="views/app/images/3.jpg"
                                       srcset="views/app/images/3.jpg 1000w,
                                       views/app/images/3.jpg 500w"
-                                      sizes="(max-width: 300px) 100vw, 300px" alt="">
+                                      sizes="(max-width: 300px) 100vw, 300px" alt="" style="border-radius: 50%">
                                     <h4>Msc. Arnoldo Contreras<br>Coordinador</h4>
 
                                 </div>
@@ -369,7 +370,7 @@
                                   <img src="views/app/images/4.jpg"
                                       srcset="views/app/images/4.jpg 1000w,
                                       views/app/images/4.jpg 500w"
-                                      sizes="(max-width: 300px) 100vw, 300px" alt="">
+                                      sizes="(max-width: 300px) 100vw, 300px" alt="" style="border-radius: 50%">
                                     <h4>Msc. Jorge Cisne<br>Coordinador</h4>
 
                                 </div>
@@ -380,7 +381,7 @@
                 <img src="views/app/images/1.jpg"
                     srcset="views/app/images/1.jpg 1000w,
                     views/app/images/1.jpg 500w"
-                    sizes="(max-width: 300px) 100vw, 300px" alt="">
+                    sizes="(max-width: 300px) 100vw, 300px" alt="" style="border-radius: 50%">
                   <h4>Alfonso Delgado <br> Desarrollador</h4>
 
 
@@ -389,7 +390,7 @@
                 <img src="views/app/images/2.jpg"
                     srcset="views/app/images/2.jpg 1000w,
                     views/app/images/2.jpg 500w"
-                    sizes="(max-width: 300px) 100vw, 300px" alt="">
+                    sizes="(max-width: 300px) 100vw, 300px" alt="" style="border-radius: 50%">
                   <h4>Henry Canales <br>Desarrollador </h4>
 
 
@@ -399,7 +400,7 @@
                   <img src="views/app/images/11.jpg"
                       srcset="views/app/images/11.jpg 1000w,
                       views/app/images/11.jpg 500w"
-                      sizes="(max-width: 300px) 100vw, 300px" alt="">
+                      sizes="(max-width: 300px) 100vw, 300px" alt="" style="border-radius: 50%">
                     <h4>Ana Maritza <br>Desarrolador</h4>
 
 

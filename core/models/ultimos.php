@@ -7,9 +7,9 @@ header('Content-Type: application/json');
 //get connection
 //get connection
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'estacion_monitoreo');
+define('DB_USER','estacion');
+define('DB_PASS','cm>%d;q@j%HeQE69');
+define('DB_NAME','estacion_monitoreo');
 $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 if(!$mysqli){
 	die("Connection failed: " . $mysqli->error);

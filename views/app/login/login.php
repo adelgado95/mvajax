@@ -1,26 +1,27 @@
   <?php
   	include(HTML_DIR.'overall/header.php');
   ?>
+  <body style="background-image: url('views/app/images/hero-bg.jpg')">
   <div id="registro" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
               <div id="_AJAX_LOGIN_">
 
               </div>
-              <div class="modal-header ">
+              <div class="modal-header modal-info">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Log In</h4>
+                <h4 class="modal-title">Iniciar Sesión</h4>
               </div>
               <div class="modal-body">
               <form role="form" onkeypress="return runScriptLogin(event)">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
+                  <label for="exampleInputEmail1">Usuario o Email</label>
                   <input type="text" class="form-control" id="user_login" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
+                  <label for="exampleInputPassword1">Clave</label>
                   <input type="password" class="form-control" id="pass_login" placeholder="Password">
                 </div>
 
@@ -28,13 +29,13 @@
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="button" class="btn btnprimary" onclick="goLogin()">Entrar</button>
+                <button type="button" class="btn btn-info" onclick="goLogin()">Entrar</button>
             <!--    <button type="submit" class="btn btn-primary">Submit</button>-->
               </div>
             </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger pull-left" onclick="cerrar()">Cerrar</button>
 
               </div>
             </div>
@@ -42,10 +43,18 @@
           </div>
           <!-- /.modal-dialog -->
         </div>
-          -  <script src="extlibs/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+  </body>
+ 
+        <script src="extlibs/admin/bower_components/jquery/dist/jquery.min.js"></script>
         </script>
 
         <script type="text/javascript">
+          function cerrar()
+          {
+              window.location.href = "index.php?view=as";
+          }
+
 
         function goLogin()
         {

@@ -16,7 +16,7 @@ if(!empty($_POST['user']) and !empty($_POST['pass']))
 	}
 	else
 	{
-		echo $pass;
+		echo "SELECT id FROM users WHERE (user='$data' or email='$data') AND pass='$pass' LIMIT 1;";
 	}
 	$db->liberar($sql);
 	$db->close();

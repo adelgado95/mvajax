@@ -62,7 +62,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="'.$users[$_SESSION['app_id']]['imagen'].'" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">'.strtoupper($users[$_SESSION['app_id']]['user']).'</span>
+              <span class="hidden-xs">'.$users[$_SESSION['app_id']]['user'].'</span>
 
 
             </a>

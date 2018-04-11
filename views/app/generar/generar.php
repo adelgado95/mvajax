@@ -153,7 +153,7 @@
 
       <script src="views/app/js/datatables.net/jquery.dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<script src="views/app/js/datatables.net-bs/dataTables.bootstrap.min.js"></script>
+  <script src="views/app/js/datatables.net-bs/dataTables.bootstrap.min.js"></script>
   <script src="views/app/js/jspdf.js"></script>
   <script src="views/app/js/standard_fonts_metrics.js"></script>
   <script src="views/app/js/split_text_to_size.js"></script>
@@ -177,7 +177,7 @@
 
       <script type="text/javascript">
       var consulta="";
-      	$(document).ready(function(){
+        $(document).ready(function(){
 
           /*Inicializar ichecks*/
           $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
@@ -559,12 +559,12 @@
                               ticks: {
                              suggestedMin: 0
                            },
-          						        scaleLabel: {
-                							display: true,
-                							labelString: 'value',
+                              scaleLabel: {
+                              display: true,
+                              labelString: 'value',
 
-                						}
-                					}
+                            }
+                          }
                         ]
                       }
                   }
@@ -588,12 +588,12 @@
                               ticks: {
                              suggestedMin: 0
                            },
-          						        scaleLabel: {
-                							display: true,
-                							labelString: 'value',
+                              scaleLabel: {
+                              display: true,
+                              labelString: 'value',
 
-                						}
-                					}
+                            }
+                          }
                         ]
                       }
                   }
