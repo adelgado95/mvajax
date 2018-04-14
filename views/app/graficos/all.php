@@ -145,12 +145,12 @@
   <section class="content">
 
       <script type="text/javascript">
-      	 
+
         $(document).ready(function(){
-			 
+
 
       $.ajax({
-    url: "core/models/ultimos.php",
+    url: "core/models/lecturas/ultimos.php",
     method: "POST",
     data:{"sensor":"sensorPm"},
     success: function(data) {
@@ -217,7 +217,7 @@
   });
 
       $.ajax({
-    url: "core/models/ultimos.php",
+    url: "core/models/lecturas/ultimos.php",
     method: "POST",
     data:{"sensor":"sensorPm1"},
     success: function(data) {
@@ -284,7 +284,7 @@
   });
 
          $.ajax({
-    url: "core/models/ultimos.php",
+    url: "core/models/lecturas/ultimos.php",
     method: "POST",
     data:{"sensor":"sensorDx"},
     success: function(data) {
@@ -347,7 +347,7 @@
 
           var dt3 = {"sensor":"sensorOz","limit":"5"};
           $.ajax({
-    url: "core/models/ultimos.php",
+    url: "core/models/lecturas/ultimos.php",
     method: "POST",
     data:dt3,
     success: function(data) {
@@ -417,7 +417,7 @@
 
   var dt4 = {"sensor":"sensorT","limit":"5"};
           $.ajax({
-    url: "core/models/ultimos.php",
+    url: "core/models/lecturas/ultimos.php",
     method: "POST",
     data:dt4,
     success: function(data) {
@@ -486,12 +486,12 @@
 
    var dt4 = {"sensor":"sensorH","limit":"5"};
           $.ajax({
-    url: "core/models/ultimos.php",
+    url: "core/models/lecturas/ultimos.php",
     method: "POST",
     data:dt4,
     success: function(data) {
       console.log(data);
-       var table = $("#tablaHumedad tbody");
+      var table = $("#tablaHumedad tbody");
               $.each(data,function(i){
               table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
           });

@@ -28,7 +28,7 @@
     <!-- script
     ================================================== -->
     <script src="views/app/js/modernizr.js"></script>
-    <script src="views/app/js/pace.min.js"></script>
+
      <!-- para que funcione el modal que sea lo que Dios quiera
     ================================================== -->
 
@@ -76,7 +76,7 @@
                     <li><a class="smoothscroll"  href="#mediciones" title="mediciones">Mediciones</a></li>
                     <li><a class="smoothscroll"  href="#equipo" title="about">Equipo</a></li>
                     <li><a  href="index.php?view=login" title="login">Iniciar sesión</a></li>
-                
+
 
                 </ul>
 
@@ -114,8 +114,7 @@
     ================================================== -->
     <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="views/app/images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
 
-        <div class="overlay"></div>
-        <div class="shadow-overlay"></div>
+
 
         <div class="home-content">
 
@@ -321,7 +320,7 @@
     <script>
     setInterval(function(){
       $.ajax({
-        url: "core/models/lastmeasuresall.php",
+        url: "index.php?view=lecturas&mode=ultimos",
         method: "POST",
         success: function(data) {
           if(data[0].fecha == $("#hactual").text())
@@ -336,7 +335,6 @@
               $("#Pm").text("Polvo 2.5pm: "+data[0].sensorPm+" ppm");
               $("#H").text("Humedad: "+data[0].sensorH+"%");
               $("#Pm10").text("Polvo 10pm: "+data[0].sensorPm1+" ppm");
-
             console.log("Cambio");
             console.log(data);
           }
@@ -367,9 +365,9 @@
 
                                 </div>
                                 <div class="col-six">
-                                  <img src="views/app/images/4.jpg"
-                                      srcset="views/app/images/4.jpg 1000w,
-                                      views/app/images/4.jpg 500w"
+                                  <img src="views/app/images/5.jpg"
+                                      srcset="views/app/images/5.jpg 1000w,
+                                      views/app/images/5.jpg 500w"
                                       sizes="(max-width: 300px) 100vw, 300px" alt="" style="border-radius: 50%">
                                     <h4>Msc. Jorge Cisne<br>Coordinador</h4>
 
@@ -397,9 +395,9 @@
               </div>
 
                 <div class="col-four">
-                  <img src="views/app/images/11.jpg"
-                      srcset="views/app/images/11.jpg 1000w,
-                      views/app/images/11.jpg 500w"
+                  <img src="views/app/images/4.jpg"
+                      srcset="views/app/images/4.jpg 1000w,
+                      views/app/images/4.jpg 500w"
                       sizes="(max-width: 300px) 100vw, 300px" alt="" style="border-radius: 50%">
                     <h4>Ana Maritza <br>Desarrolador</h4>
 

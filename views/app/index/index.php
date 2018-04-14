@@ -167,11 +167,9 @@
 <script src="views/app/js/generales.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
-    var dt = {"sensor":"sensorOz","limit":"5"};
+
           $.ajax({
-    url: "core/models/ultimos.php",
-    method: "POST",
-    data:dt,
+    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorDx&limit=10",
     success: function(data) {
       console.log(data);
        var table = $("#tablaOzono tbody");
@@ -203,7 +201,30 @@
 
       var line = new Chart(ctx, {
         type: 'line',
-        data: chartdata
+        data: chartdata,
+        options:{
+            scales:{
+              xAxes:[{
+                type:'time',
+                time:{
+                  format:'YYYY-MM-DD HH:mm',
+                  tooltipFormat:'ll HH:mm',
+                }
+              }],
+              yAxes:[
+                {
+                    ticks: {
+                   suggestedMin: 0
+                 },
+                    scaleLabel: {
+                    display: true,
+                    labelString: 'value',
+
+                  }
+                }
+              ]
+            }
+        }
 
       });
     },
@@ -212,11 +233,10 @@
     }
   });
 
-  var dt2 = {"sensor":"sensorT","limit":"5"};
+
           $.ajax({
-    url: "core/models/ultimos.php",
-    method: "POST",
-    data:dt2,
+    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorOz&limit=10",
+    method: "GET",
     success: function(data) {
       console.log(data);
        var table = $("#tablaTemperatura tbody");
@@ -251,16 +271,24 @@
         data: chartdata,
         options:{
             scales:{
-             
+              xAxes:[{
+                type:'time',
+                time:{
+                  format:'YYYY-MM-DD HH:mm',
+                  tooltipFormat:'ll HH:mm'
+                }
+              }],
               yAxes:[
                 {
-                   
-                    scaleLabel: {
-                    display: true,
-                    labelString: 'Lecturas',
+                    ticks: {
+                   suggestedMin: 0
+                 },
+						        scaleLabel: {
+      							display: true,
+      							labelString: 'value',
 
-                  }
-                }
+      						}
+      					}
               ]
             }
         }

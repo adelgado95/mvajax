@@ -48,9 +48,9 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="extlibs/admin/dist/js/adminlte.min.js"></script>
+<script src="views/app/js/adminlte.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-<script src="extlibs/admin/plugins/iicheck/icheck.min.js"></script>
+<script src="views/app/js/iicheck/icheck.min.js"></script>
 </body>
 </html>

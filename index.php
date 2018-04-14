@@ -1,17 +1,15 @@
 <?php
 require('core/core.php');
-ini_set('display_errors', 1);
-if(isset($_GET['view']))
-{	
-	if(file_exists('core/controllers/'.$_GET['view'].'Controller.php'))
+if(isset($_REQUEST['view']))
+{
+	if(file_exists('core/controllers/'.$_REQUEST['view'].'Controller.php'))
 	{
-		
-		include('core/controllers/'.$_GET['view'].'Controller.php');
+
+		include('core/controllers/'.$_REQUEST['view'].'Controller.php');
 	}
 	else
 	{
-			echo $_GET['view'];
-			include('core/controllers/loginController.php');
+			header('location:index.php');
 	}
 }
 else

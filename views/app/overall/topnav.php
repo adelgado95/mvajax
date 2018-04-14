@@ -26,7 +26,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="admin.html" class="logo">
+    <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>UN</b>AN</span>
       <!-- logo for regular state and mobile devices -->
@@ -73,7 +73,7 @@ desired effect
 
                 <p>'.
                  strtoupper($users[$_SESSION['app_id']]['user'])
-                  .' <small>'.strtoupper($users[$_SESSION['app_id']]['area_trabajo']).'</small>
+                  .' <small>'.strtoupper($users[$_SESSION['app_id']]['Apellido']).'</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -139,9 +139,10 @@ desired effect
           <li><a href="?view=admin"><i class="fa fa-home"></i> <span>INICIO</span></a></li>
         <li><a href="?view=graficos"><i class="fa fa-area-chart"></i> <span>GRAFICOS</span></a></li>
         <li><a href="?view=tablas"><i class="fa fa-table"></i> <span>TABLAS</span></a></li>
-         <li><a href="?view=generar"><i class="fa fa-pencil"></i> <span>GENERAR</span></a></li>
-
-      </ul>
+         <li><a href="?view=generar"><i class="fa fa-pencil"></i> <span>GENERAR</span></a></li>';
+         if($users[$_SESSION['app_id']]['permisos'] == 1)
+         echo '<li><a href="?view=user"><i class="fa fa-users"></i> <span>USUARIOS</span></a></li>';
+      echo '</ul>
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

@@ -4,8 +4,8 @@ DESCRIPTION:
 
 GLINT is a modern and stylish digital agency HTML template. Designed for creative designers, agencies
 freelancers, photographer or any creative profession. It is fully responsive and retina/hi-dpi ready
-making it pixel sharp on any devices. It has animating stats section, working contact form, 
-stylish portfolio section and other features you will only find on premium html templates. 
+making it pixel sharp on any devices. It has animating stats section, working contact form,
+stylish portfolio section and other features you will only find on premium html templates.
 Built with clean and organized code, this template is very easy to customize.
 
 ==================================================================================================
@@ -13,11 +13,11 @@ Built with clean and organized code, this template is very easy to customize.
 
 USING THE MAILCHIMP FORM:
 
-To use the mailchimp form you need a mailchimp url. To get the mailchimp url, login to 
+To use the mailchimp form you need a mailchimp url. To get the mailchimp url, login to
 your mailchimp account, click the list menu, click the stats download menu and select signup forms. 
-Then choose embedded forms and select naked form. In the generated form code get the value of 
+Then choose embedded forms and select naked form. In the generated form code get the value of
 the form ACTION attribute and use it as your mailchimp url. Open the main.js file located
-in the template's "js" folder and look for this line of code: 
+in the template's "js" folder and look for this line of code:
 
 var cfg = {
     scrollDuration : 800, // smoothscroll duration
@@ -43,7 +43,7 @@ Icons:
 Stock Photos and Graphics:
  - Unsplash.com (https://unsplash.com/)
  - gratisography (https://gratisography.com/)
- 
+
 Javascript Files:
 
  - JQuery (http://jquery.com/)
@@ -62,8 +62,3 @@ Javascript Files:
 
 
 -------------------------------------------------------------------------------------------------------
-
-
-
-
-

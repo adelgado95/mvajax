@@ -106,6 +106,7 @@
 
           </div>
             <button class="btn btn-default" onclick="Generar()">Generar</button>
+                <button class="btn btn-default" onclick="GenerarP()">Generar2</button>
 
 
             </div>
@@ -177,6 +178,7 @@
 
       <script type="text/javascript">
       var consulta="";
+
         $(document).ready(function(){
 
           /*Inicializar ichecks*/
@@ -363,7 +365,7 @@
         function mgenerarPDF(parametros,sensores)
         {
           $.ajax({
-         url: "core/models/servicegenerar.php",
+         url: "core/models/lecturas/servicegenerar.php",
         method: "POST",
         data:{
           "sensor":parametros[0],
@@ -480,7 +482,7 @@
                   colores.push("#B20BAB");
                   var datos;
                   $.ajax({
-                 url: "core/models/servicegenerar.php",
+                 url: "core/models/lecturas/servicegenerar.php",
                 method: "POST",
                 data:{
                   "sensor":parametros[0],
@@ -616,7 +618,7 @@
         function mgenerarTabla(parametros,sensores)
         {
                     $.ajax({
-                   url: "core/models/servicegenerar.php",
+                   url: "core/models/lecturas/servicegenerar.php",
                   method: "POST",
                   data:{
                     "sensor":parametros[0],
@@ -718,6 +720,21 @@
               $('html, body').animate({
             scrollTop: $("#tab").offset().top
                }, 2000);
+        }
+        function GenerarP()
+        {
+          $.ajax({
+         url: "index.php?view=lecturas&mode=generar",
+        data:{
+          "sensor":'dtx'
+        },
+       success: function(data) {
+        console.log(data);
+        },
+        error: function(data) {
+            console.log(data);
+            }
+          });
         }
 
 

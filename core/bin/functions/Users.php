@@ -10,7 +10,8 @@
 				$users[$d['id']]= array(
 					'id'=>$d['id'],
 					'user'=>$d['user'],
-					'pass'=>$d['email'],
+					'email'=>$d['email'],
+					'Apellido'=>$d['apellido'],
 					'permisos'=>$d['permisos'],
 					'imagen'=>$d['imagen'],
 					'area_trabajo'=>$d['area_trabajo']

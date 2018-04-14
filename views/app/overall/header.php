@@ -14,28 +14,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="extlibs/admin/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="views/app/css/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="extlibs/admin/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="views/app/css/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="extlibs/admin/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="views/app/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="extlibs/admin/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="views/app/css/skins/skin-blue.min.css">
 
     <link rel="stylesheet" href="views/app/css/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap datepicker -->
 
-   <link rel="stylesheet" href="extlibs/admin/plugins/iCheck/all.css">
+   <link rel="stylesheet" href="views/app/css/iCheck/all.css">
   <!-- iCheck for checkboxes and radio inputs -->
 
   <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="extlibs/admin/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
   <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="extlibs/admin/plugins/timepicker/bootstrap-timepicker.min.css">
+  <link rel="stylesheet" href="views/app/css/timepicker/bootstrap-timepicker.min.css">
   <!-- Select2 -->
-  <link rel="stylesheet" href="extlibs/admin/bower_components/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="views/app/css/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="views/app/css/datatables.net-bs/dataTables.bootstrap.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.27/daterangepicker.min.css">

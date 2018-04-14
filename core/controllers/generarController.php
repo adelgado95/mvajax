@@ -15,26 +15,7 @@
     }
     else
     {
-      echo '<h1>
-        POR FAVOR INICIE SESSIÓN
-        <small>Usuario No Registrado</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-graph"></i>Gráficos</a></li>
-        <li class="active">Sensor MD</li>
-      </ol>
-       </section>
-    <!-- Main content -->
-    <section class="content container-fluid">
-
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#registro">
-                Iniciar Sesión
-              </button>
-
-    </section>';
+      include(HTML_DIR.'error/login.php');
     }
     ?>
     <!-- /.content -->

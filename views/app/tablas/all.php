@@ -219,7 +219,7 @@
       		var datos = {"sensor":"sensorT","limit":"5"}
       				$.ajax({
   			 type    : "POST",
-   			url     : "core/models/ultimos.php",
+   			url     : "core/models/lecturas/ultimos.php",
    			dataType: "json",
    			data: datos,
 	   success:function(data) {
@@ -233,7 +233,7 @@
           var datosh = {"sensor":"sensorH","limit":"5"}
               $.ajax({
          type    : "POST",
-        url     : "core/models/ultimos.php",
+        url     : "core/models/lecturas/ultimos.php",
         dataType: "json",
         data: datosh,
      success:function(data) {
@@ -247,7 +247,7 @@
       		var dt = {"sensor":"sensorDx","limit":"5"}
 			         $.ajax({
 					  			 type    : "POST",
-					   			url     : "core/models/ultimos.php",
+					   			url     : "core/models/lecturas/ultimos.php",
 					   			dataType: "json",
 					   			data: dt,
 						   success:function(data) {
@@ -261,7 +261,7 @@
 			var dt3 = {"sensor":"sensorOz","limit":"5"}
 			$.ajax({
 					  			 type    : "POST",
-					   			url     : "core/models/ultimos.php",
+					   			url     : "core/models/lecturas/ultimos.php",
 					   			dataType: "json",
 					   			data: dt3,
 						   success:function(data) {
@@ -275,7 +275,7 @@
        var dt4 = {"sensor":"sensorPm","limit":"5"}
       $.ajax({
                    type    : "POST",
-                  url     : "core/models/ultimos.php",
+                  url     : "core/models/lecturas/ultimos.php",
                   dataType: "json",
                   data: dt4,
                success:function(data) {
@@ -289,7 +289,7 @@
         var dt5 = {"sensor":"sensorPm1","limit":"5"}
       $.ajax({
                    type    : "POST",
-                  url     : "core/models/ultimos.php",
+                  url     : "core/models/lecturas/ultimos.php",
                   dataType: "json",
                   data: dt5,
                success:function(data) {
@@ -319,7 +319,7 @@
 			  var datos = {"sensor":"grafico_dht11"}
       				$.ajax({
   			 type    : "POST",
-   			url     : "core/models/ultimos.php",
+   			url     : "core/models/lecturas/ultimos.php",
    			dataType: "json",
    			data: datos,
 	   success:function(data) {
@@ -333,7 +333,7 @@
       		var dt = {"sensor":"grafico_mq7"}
 			$.ajax({
   			 type    : "POST",
-   			url     : "core/models/ultimos.php",
+   			url     : "core/models/lecturas/ultimos.php",
    			dataType: "json",
    			data: dt,
 	   success:function(data) {
