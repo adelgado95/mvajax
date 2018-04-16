@@ -13,6 +13,9 @@
             case 'getAll':
             include('core/models/users/getall.php');
             break;
+            case 'delete':
+            include('core/models/users/userDelete.php');
+            break;
 				    default:
 				      header('location:index.php?view=users');
 

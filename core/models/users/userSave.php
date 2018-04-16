@@ -44,12 +44,13 @@ if(isset($_REQUEST['email']))
     $email = $_REQUEST['email'];
 }
 if($_REQUEST['userId']==-1){
+	$password = Encrypt($pass);
 $query2 = sprintf("SELECT id FROM users ORDER BY id DESC limit 1;");
 $result2 = $mysqli->query($query2);
 $row = $result2->fetch_assoc();
 $idd =$row['id']+1;
 $query = sprintf("INSERT INTO users(id,user,nombre,apellido,pass,area_trabajo,telefono,imagen,email,permisos)".
-"values($idd,'$user','$nombre','$apellidos','$pass','$area','$telefono','views/app/images/".$idd.".jpg','$email',0)");
+"values($idd,'$user','$nombre','$apellidos','$password','$area','$telefono','views/app/images/".$idd.".jpg','$email',0)");
 $result = $mysqli->query($query);
 $archivo = $_FILES['imagen'];
 //execute query

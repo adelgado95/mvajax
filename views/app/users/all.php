@@ -1,12 +1,33 @@
 
 
       </section>
-    <!-- Main content -->
+
     <section class="content">
+    <div id="deleteModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+          <!-- Modal content-->
+              <div class="modal-content">
+                    <div class="modal-header" style="background-color:#930000;color:white">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 id="modalTitulo" class="modal-title">EditarUsuario</h4>
+                    </div>
+              <div class="modal-body">
+                <h3>Esta seguro que desea eliminar este usuario?</h3>
+                <form class="form-horizontal">
+                  <input id="duserId" name="duserId" type="hidden">
+                </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-info" onclick="btnEliminar()">Eliminar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              </div>
+            </div>
+
+          </div>
+
+    </div>
       <div id="editModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
-    <!-- Modal content-->
       <div class="modal-content">
       <div id="modalHeader" class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -61,9 +82,9 @@
                </div>
                <div class="form-group">
 
-                 <label for="inputEmail3" class="col-sm-2 control-label" name="pass">Contraseña</label>
+                 <label for="inputEmail3" class="col-sm-2 control-label">Contraseña</label>
                  <div class="col-sm-10">
-                   <input type="text" class="form-control" id="tPassword" placeholder="">
+                   <input type="text" class="form-control" id="tPassword" name="pass" placeholder="">
                  </div>
                </div>
 
@@ -136,10 +157,35 @@
 <!-- SlimScroll -->
 
       <script type="text/javascript">
+      function btnEliminar()
+      {
+        var idusuario = $('#duserId').val();
+        $.ajax({
+            url:"index.php",
+          mode:"POST",
+          data:{
+            "view":"user",
+            "mode":"delete",
+            "id":idusuario
+          },
+          success:function(data)
+          {
+                console.log(data);
+                $("#deleteModal").modal('hide');
+                CargarUsuarios();
+
+          },
+          error:function(data)
+          {
+            console.log(data);
+          }
+        });
+      }
       function btnEnviar()
       {
-        $('#Form1').submit();
+          $('#Form1').submit();
           $("#editModal").modal('hide');
+          CargarUsuarios();
       }
       function btnNuevo()
       {    var newContent = document.createTextNode("AgregarUsuario");
@@ -148,12 +194,11 @@
              $("#modalTitulo").append(newContent);
                 $("#userId").val("-1");
                 $("#modalHeader").css({"background-color":"#006a9d","color":"white"});
-
           $("#editModal").modal('show');
       }
       function btnEditar()
       {
-        if($('#userId').val() == "-1"){
+        if($('#usesrId').val() == "-1"){
 
           var user = $('#tUsuario').val();
           var email = $('#tEmail').val();
@@ -241,50 +286,79 @@
         $('#tArea').val("");
         $('#tTelefono').val("");
       }
-      	$(document).ready(function(){
-      				$.ajax({
-  			type    : "GET",
-   			url     : "index.php?view=user&mode=getAll",
-   			dataType: "json",
-	       success:function(data) {
-   		 console.log(data);
-   		 var table = $("#tablauser tbody");
-			    		$.each(data,function(i){
-			        table.append("<tr><td>"+data[i].id+"</td><td>"+data[i].user+"</td><td>"+(data[i].nombre+" "+data[i].apellido)+"</td><td>"+data[i].email+"</td><td>"+data[i].area_trabajo+"</td><td><button id=e"+data[i].id+" class='btn btn-success' value="+data[i].id+" name='editar'>Editar</button><button id=d"
-              +data[i].id+" class='btn btn-danger' value="+data[i].id+" name='eliminar'>Eliminar</button></td></tr>");
-              $("#e"+data[i].id).attr("onclick", "").click(function(e) {
-                $.ajax({
-                  type:"GET",
-                  url:"index.php?view=user&mode=userGet&id="+e.target.value,
-                  dataType:"json",
-                  success:function(data)
-                  {
-                    console.log(data);
-                        vaciarCampos();
-                        $("#modalHeader").css({"background-color":"#006a2e","color":"white"});
-                    var newContent = document.createTextNode("EditarUsuario");
-                            $("#modalTitulo").empty();
-                         $("#modalTitulo").append(newContent);
-                    $("#userId").val(data[0].id);
-                    $('#tUsuario').val(data[0].user);
-                    $('#tNombre').val(data[0].nombre);
-                    $('#tApellido').val(data[0].apellido);
-                    $('#tEmail').val(data[0].email);
-                    $('#tArea').val(data[0].area_trabajo);
-                    $('#tTelefono').val(data[0].telefono);
-                    $("#editModal").modal('show');
-                  },
-                  error:function(data)
-                  {
-                    console.log(data);
-                  }
+      function CargarUsuarios()
+      {
+                        $.ajax({
+                  type    : "GET",
+                  url     : "index.php?view=user&mode=getAll",
+                  dataType: "json",
+                   success:function(data) {
+                 console.log(data);
+                 var table = $("#tablauser tbody");
+                 table.empty();
+                        $.each(data,function(i){
+                        table.append("<tr><td>"+data[i].id+"</td><td>"+data[i].user+"</td><td>"+(data[i].nombre+" "+data[i].apellido)+"</td><td>"+data[i].email+"</td><td>"+data[i].area_trabajo+"</td><td><button id=e"+data[i].id+" class='btn btn-success' value="+data[i].id+" name='editar'>Editar</button><button id=d"
+                        +data[i].id+" class='btn btn-danger' value="+data[i].id+" name='eliminar'>Eliminar</button></td></tr>");
+                        $("#e"+data[i].id).attr("onclick", "").click(function(e) {
+                          $.ajax({
+                            type:"GET",
+                            url:"index.php?view=user&mode=userGet&id="+e.target.value,
+                            dataType:"json",
+                            success:function(data)
+                            {
+                              console.log(data);
+                                  vaciarCampos();
+                                  $("#modalHeader").css({"background-color":"#006a2e","color":"white"});
+                              var newContent = document.createTextNode("EditarUsuario");
+                                      $("#modalTitulo").empty();
+                                   $("#modalTitulo").append(newContent);
+                              $("#userId").val(data[0].id);
+                              $('#tUsuario').val(data[0].user);
+                              $('#tNombre').val(data[0].nombre);
+                              $('#tApellido').val(data[0].apellido);
+                              $('#tEmail').val(data[0].email);
+                              $('#tArea').val(data[0].area_trabajo);
+                              $('#tTelefono').val(data[0].telefono);
+                              $("#editModal").modal('show');
+                            },
+                            error:function(data)
+                            {
+                              console.log(data);
+                            }
+                          });
+                        });
+                          $("#d"+data[i].id).attr("onclick", "").click(function(e) {
+                            $.ajax({
+                              type:"GET",
+                              url:"index.php?view=user&mode=userGet&id="+e.target.value,
+                              dataType:"json",
+                              success:function(data)
+                              {
+                                console.log(data);
+                                if(data[0].permisos == 1)
+                                {
+                                  alert("Usted no puede eliminar este usuario");
+                                  return;
+                                }
+                                else{
+                                  $("#duserId").val(data[0].id);
+                                  $("#deleteModal").modal('show');
+                                }
+
+                              },
+                              error:function(data)
+                              {
+                                console.log(data);
+
+                              }
+                            });
+                        });
                 });
-              });
-                $("#d"+data[i].id).attr("onclick", "").click(function(e) {
-                  alert(e.target.value+e.target.name);
-              });
-			});
-    }
-  })
-})
+                }
+                })
+      }
+      	$(document).ready(function(){
+            CargarUsuarios();
+        })
+
       </script>
