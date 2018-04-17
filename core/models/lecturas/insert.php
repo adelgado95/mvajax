@@ -46,7 +46,7 @@ $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
     //execute query
     $result = $mysqli->query($query);
-        echo $result;
+      echo $result;
 
     //loop through the returned data
 

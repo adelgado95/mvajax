@@ -9,10 +9,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-    <?php
-    if(isset($_SESSION['app_id']))
-    {
-      echo '</section>
+    </section>
     <!-- Main content -->
     <section class="content container-fluid">
      <section class="content">
@@ -44,7 +41,7 @@
           <!-- LINE CHART -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Tabla Ozono</h3>
+              <h3 class="box-title">Tabla Monóxido de Carbono</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -95,15 +92,10 @@
         </div>
 
 
-
          <div class="row">
+            <div class="col-md-6">
 
-          <!-- /.box -->
-
-          <!-- BAR CHART -->
-         <div class="col-md-6">
-          <!-- LINE CHART -->
-          <div class="box box-danger">
+              <div class="box box-danger">
             <div class="box-header with-border">
               <h3 class="box-title">Tabla Temperatura</h3>
 
@@ -133,35 +125,10 @@
         </div>
       <!-- /.row -->
 
-    </section>    ';
+    </section>
 
-    echo '</section>';
-    }
-    else
-    {
-      echo '<h1>
-        POR FAVOR INICIE SESSIÓN
-        <small>Usuario No Registrado</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-graph"></i>Gráficos</a></li>
-        <li class="active">Sensor MD</li>
-      </ol>
-       </section>
-    <!-- Main content -->
-    <section class="content container-fluid">
+    </section>;
 
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#registro">
-                Iniciar Sesión
-              </button>
-
-    </section>';
-    }
-    ?>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 <script src="views/app/js/generales.js"></script>
@@ -169,7 +136,7 @@
   $(document).ready(function(){
 
           $.ajax({
-    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorDx&limit=10",
+    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorDx&limit=6",
     success: function(data) {
       console.log(data);
        var table = $("#tablaOzono tbody");
@@ -213,9 +180,7 @@
               }],
               yAxes:[
                 {
-                    ticks: {
-                   suggestedMin: 0
-                 },
+
                     scaleLabel: {
                     display: true,
                     labelString: 'value',
@@ -235,7 +200,7 @@
 
 
           $.ajax({
-    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorOz&limit=10",
+    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorT&limit=6",
     method: "GET",
     success: function(data) {
       console.log(data);
@@ -252,7 +217,10 @@
         fecha.push(data[i].fecha);
         lectura.push(data[i].lectura);
       }
-
+      min = Math.min(...lectura);
+      min--;
+      max = Math.max(...lectura);
+      max++;
       var chartdata = {
         labels: fecha,
         datasets : [
@@ -281,7 +249,8 @@
               yAxes:[
                 {
                     ticks: {
-                   suggestedMin: 0
+                   suggestedMin: min,
+                   suggestedMax: max
                  },
 						        scaleLabel: {
       							display: true,

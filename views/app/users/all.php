@@ -151,6 +151,8 @@
         <!-- /.col (RIGHT) -->
       </div>
     </section>
+    </section>
+  </div>
 
       <script src="views/app/js/datatables.net/jquery.dataTables.min.js"></script>
 	<script src="views/app/js/datatables.net-bs/dataTables.bootstrap.min.js"></script>

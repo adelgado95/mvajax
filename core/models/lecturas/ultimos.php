@@ -23,7 +23,7 @@ else
 	$limit = 10;
 }//query to get data from the table
 
-$query = sprintf("SELECT Id_lectura as numero ,".$sensor." as lectura,fecha as fecha FROM lectura order by Id_lectura desc limit 24");
+$query = sprintf("SELECT Id_lectura as numero ,".$sensor." as lectura,fecha as fecha FROM lectura order by Id_lectura desc limit $limit");
 
 //execute query
 $resulta = $mysqli->query($query);

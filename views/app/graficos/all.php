@@ -72,6 +72,7 @@
             <!-- /.box-body -->
           </div>
         </div>
+      </div>
 
       <div class="row">
         <div class="col-md-12">
@@ -142,17 +143,17 @@
           </div>
         </div>
       </div>
-  <section class="content">
+    </section>
+  </div>
+
+
 
       <script type="text/javascript">
 
         $(document).ready(function(){
 
-
       $.ajax({
-    url: "core/models/lecturas/ultimos.php",
-    method: "POST",
-    data:{"sensor":"sensorPm"},
+    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorPm&limit=10",
     success: function(data) {
       console.log(data);
       var timeformat="YYYY-MM-DD HH:MM";
@@ -170,14 +171,18 @@
         labels: fecha,
         datasets : [
           {
-            label: 'Sensor SDS011',
-            borderColor: '#ff1900',
+            label: 'Sensor Pm 2.5',
+            borderColor: '#373737',
             fill: false,
             data: lectura
           }]
       };
 
       var ctx = $("#graficoPM2");
+      min = Math.min(...lectura);
+      min--;
+      max = Math.max(...lectura);
+      max++;
 
       var line = new Chart(ctx, {
         type: 'line',
@@ -196,11 +201,12 @@
               yAxes:[
                 {
                     ticks: {
-                   suggestedMin: 0
+                   suggestedMin: min,
+                   suggestedMax: max
                  },
 						        scaleLabel: {
       							display: true,
-      							labelString: 'value',
+      							labelString: 'lecturas',
 
       						}
       					}
@@ -217,9 +223,7 @@
   });
 
       $.ajax({
-    url: "core/models/lecturas/ultimos.php",
-    method: "POST",
-    data:{"sensor":"sensorPm1"},
+    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorPm1&limit=10",
     success: function(data) {
       console.log(data);
       var timeformat="YYYY-MM-DD HH:MM";
@@ -237,15 +241,18 @@
         labels: fecha,
         datasets : [
           {
-            label: 'Sensor SDS011',
-            borderColor: '#FF33DD',
+            label: 'Sensor Pm10',
+            borderColor: '#cccc00',
             fill: false,
             data: lectura
           }]
       };
 
       var ctx = $("#graficoPM10");
-
+      min = Math.min(...lectura);
+      min--;
+      max = Math.max(...lectura);
+      max++;
       var line = new Chart(ctx, {
         type: 'line',
         data: chartdata,
@@ -263,7 +270,8 @@
               yAxes:[
                 {
                     ticks: {
-                   suggestedMin: 0
+                   suggestedMin: min,
+                   suggestedMax: max
                  },
                     scaleLabel: {
                     display: true,
@@ -284,18 +292,22 @@
   });
 
          $.ajax({
-    url: "core/models/lecturas/ultimos.php",
-    method: "POST",
-    data:{"sensor":"sensorDx"},
+    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorOz&limit=10",
     success: function(data) {
       console.log(data);
       var fecha = [];
       var lectura = [];
       var lectura2 = [];
-
+      var min = 1500;
+      var max = 0;
       for(var i in data) {
         fecha.push(data[i].fecha);
         lectura.push(data[i].lectura);
+        if(data[i].lectura > max )
+        max = data[i].lectura;
+        if(data[i].lectura < min )
+        min = data[i].lectura;
+
       }
 
       var chartdata = {
@@ -310,6 +322,10 @@
       };
 
       var ctx = $("#graficoOzono");
+      min = Math.min(...lectura);
+      min--;
+      max = Math.max(...lectura);
+      max++;
 
       var line = new Chart(ctx, {
         type: 'line',
@@ -326,7 +342,8 @@
               yAxes:[
                 {
                     ticks: {
-                   suggestedMin: 0
+                   suggestedMin: min,
+                   suggestedMax: max
                  },
 						        scaleLabel: {
       							display: true,
@@ -345,11 +362,9 @@
     }
   });
 
-          var dt3 = {"sensor":"sensorOz","limit":"5"};
+
           $.ajax({
-    url: "core/models/lecturas/ultimos.php",
-    method: "POST",
-    data:dt3,
+    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorOz&limit=10",
     success: function(data) {
       console.log(data);
        var table = $("#tablaOzono tbody");
@@ -378,6 +393,10 @@
       };
 
       var ctx = $("#graficoMonoxido");
+      min = Math.min(...lectura);
+      min--;
+      max = Math.max(...lectura);
+      max++;
 
       var line = new Chart(ctx, {
         type: 'line',
@@ -394,8 +413,8 @@
               yAxes:[
                 {
                     ticks: {
-                   suggestedMin: 0,
-                   suggestedMax:10
+                   suggestedMin: min,
+                   suggestedMax:max
                  },
                     scaleLabel: {
                     display: true,
@@ -415,17 +434,11 @@
     }
   });
 
-  var dt4 = {"sensor":"sensorT","limit":"5"};
+
           $.ajax({
-    url: "core/models/lecturas/ultimos.php",
-    method: "POST",
-    data:dt4,
+    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorT&limit=20",
     success: function(data) {
       console.log(data);
-       var table = $("#tablaTemperatura tbody");
-              $.each(data,function(i){
-              table.append("<tr><td>"+data[i].numero+"</td><td>"+data[i].lectura+"</td> <td>"+data[i].fecha+"</td></tr>");
-          });
 
       var fecha = [];
       var lectura = [];
@@ -448,6 +461,10 @@
       };
 
       var ctx = $("#graficoTemperatura");
+      min = Math.min(...lectura);
+      min--;
+      max = Math.max(...lectura);
+      max++;
 
       var line = new Chart(ctx, {
         type: 'line',
@@ -464,7 +481,8 @@
               yAxes:[
                 {
                     ticks: {
-                   suggestedMin: 0
+                   suggestedMin: min,
+                   suggestedMax: max
                  },
                     scaleLabel: {
                     display: true,
@@ -484,11 +502,10 @@
     }
   });
 
-   var dt4 = {"sensor":"sensorH","limit":"5"};
+
           $.ajax({
-    url: "core/models/lecturas/ultimos.php",
-    method: "POST",
-    data:dt4,
+    url: "index.php?view=lecturas&mode=ultimosdatos&sensor=sensorH&limit=20",
+
     success: function(data) {
       console.log(data);
       var table = $("#tablaHumedad tbody");
@@ -510,13 +527,17 @@
         datasets : [
           {
             label: 'Sensor DTH11',
-            borderColor: '#990000',
+            borderColor: '#660066',
             fill: false,
             data: lectura
           }]
       };
 
       var ctx = $("#graficoHumedad");
+      min = Math.min(...lectura);
+      min--;
+      max = Math.max(...lectura);
+      max++;
 
       var line = new Chart(ctx, {
         type: 'line',
@@ -533,7 +554,8 @@
               yAxes:[
                 {
                     ticks: {
-                   suggestedMin: 0
+                   suggestedMin: min,
+                   suggestedMax: max
                  },
                     scaleLabel: {
                     display: true,
