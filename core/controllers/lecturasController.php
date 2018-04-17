@@ -2,6 +2,9 @@
 if(isset($_REQUEST['mode']))
 {
   switch (isset($_REQUEST['mode']) ? $_REQUEST['mode'] : null) {
+    case 'generar':
+    include('core/models/lecturas/generar.php');
+    break;
    case 'insert':
    include('core/models/lecturas/insert.php');
    break;

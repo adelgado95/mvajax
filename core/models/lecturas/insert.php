@@ -5,6 +5,7 @@ $sensorH="0";
 $sensorPm="0";
 $sensorPm1="0";
 $sensorOz="0";
+$Id_estacion="0";
     if(isset($_GET['sensorDx']))
     {
       $sensorDx=$_GET['sensorDx'];

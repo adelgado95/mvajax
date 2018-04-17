@@ -365,14 +365,16 @@
         function mgenerarPDF(parametros,sensores)
         {
           $.ajax({
-         url: "core/models/lecturas/servicegenerar.php",
-        method: "POST",
-        data:{
-          "sensor":parametros[0],
-          "dias":parametros[1],
-          "horas":parametros[2],
-          "intervalos":parametros[3]
-        },
+            url: "index.php",
+           method: "POST",
+           data:{
+             "view":"lecturas",
+             "mode":"generar",
+             "sensor":parametros[0],
+             "dias":parametros[1],
+             "horas":parametros[2],
+             "intervalos":parametros[3]
+           },
        success: function(data) {
         console.log(data);
         if(data=="NA")
@@ -482,14 +484,16 @@
                   colores.push("#B20BAB");
                   var datos;
                   $.ajax({
-                 url: "core/models/lecturas/servicegenerar.php",
-                method: "POST",
-                data:{
-                  "sensor":parametros[0],
-                  "dias":parametros[1],
-                  "horas":parametros[2],
-                  "intervalos":parametros[3]
-                },
+                    url: "index.php",
+                   method: "POST",
+                   data:{
+                     "view":"lecturas",
+                     "mode":"generar",
+                     "sensor":parametros[0],
+                     "dias":parametros[1],
+                     "horas":parametros[2],
+                     "intervalos":parametros[3]
+                   },
                success: function(data) {
                  if(data=="NA")
                  {
@@ -618,9 +622,11 @@
         function mgenerarTabla(parametros,sensores)
         {
                     $.ajax({
-                   url: "core/models/lecturas/servicegenerar.php",
+                   url: "index.php",
                   method: "POST",
                   data:{
+                    "view":"lecturas",
+                    "mode":"generar",
                     "sensor":parametros[0],
                     "dias":parametros[1],
                     "horas":parametros[2],

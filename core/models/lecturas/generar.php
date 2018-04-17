@@ -5,13 +5,10 @@ header('Content-Type: application/json');
 
 //database
 //get connection
-define('DB_HOST', 'localhost');
-define('DB_USERNAME','root');
-define('DB_PASSWORD','');
-define('DB_NAME','estacion_monitoreo');
+
 
 //get connection
-$mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 $pinter = $_POST['intervalos'];
 $inter = explode(',',$pinter);
@@ -42,8 +39,6 @@ $pdias = $_POST['dias'];
 $dias = explode(',',$pdias);
 $phoras = $_POST['horas'];
 $horas = explode(',',$phoras);
-
-
 
 if(strcmp($dias[0],"dia") == 0)
 {
